@@ -1,0 +1,9 @@
+#navbarNavDropdown .nav-item.dropdown .dropdown-menu .dropdown-item i {
+  position: absolute;
+  left: 20px; /* ← يجعل الأيقونة على الجهة اليسار */
+  top: 50%;
+
+  transform: translateY(-50%);
+  color: #ffffff !important;
+  transition: color 0.2s ease;
+}
