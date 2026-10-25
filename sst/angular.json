@@ -62,6 +62,29 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
+        },
+        "pages": {
+          "baseHref": "/news_eye/",
+          "outputPath": "dist/pages",
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "projects/user/src/environments/environment.ts",
+              "with": "projects/user/src/environments/environment.pages.ts"
+            }
+          ],
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "4mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "8kb",
+              "maximumError": "16kb"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

@@ -4,6 +4,10 @@
 
 An Arabic (RTL) news website with a public site, an admin dashboard, and a PHP/MySQL API. The front end is built with Angular 16, and the news content is imported from public RSS feeds with full source attribution.
 
+**Live demo:** https://hudamohamad.github.io/news_eye/
+
+The live demo is a static build of the public site. GitHub Pages can't run PHP, so it reads the news from pre-exported JSON files instead of the API (see [Live demo build](#live-demo-build)).
+
 ![Home page](docs/screenshots/home.jpg)
 
 ## Features
@@ -97,6 +101,20 @@ php import_news.php --reflag   # only redistribute the home page, without fetchi
 
 - Each section keeps at most 20 imported stories (two pages).
 - Duplicates are skipped by link and by title.
+
+## Live demo build
+
+The GitHub Pages version runs without any server:
+
+- `npm run build:pages` builds the public site with the `pages` configuration (`baseHref` `/news_eye/`). It also writes a `404.html` copy of the app, so deep links such as `/news_eye/part-5` work.
+- In that build, [`static-api.ts`](sst/projects/user/src/static-api.ts) redirects every request to the PHP API to a JSON file in `assets/api/`. Search runs in the browser over `search-index.json`.
+- To refresh the JSON files, run the following with the backend running locally:
+
+```bash
+cd sst
+npm run export:static-api   # saves the API responses to projects/user/src/assets/api
+npm run build:pages         # output: dist/pages, deployed to the gh-pages branch
+```
 
 ## Content and attribution
 

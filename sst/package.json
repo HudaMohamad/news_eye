@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "export:static-api": "node scripts/export-static-api.js",
+    "build:pages": "ng build user --configuration pages && node -e \"require('fs').copyFileSync('dist/pages/index.html','dist/pages/404.html');require('fs').writeFileSync('dist/pages/.nojekyll','')\""
   },
   "private": true,
   "dependencies": {
