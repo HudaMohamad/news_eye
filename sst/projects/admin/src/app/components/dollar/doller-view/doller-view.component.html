@@ -1,0 +1,85 @@
+<div class="background">
+
+<div class="container mt-4" dir="rtl">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+      <h5 class="mb-0"><i class="fa-solid fa-dollar-sign me-2"></i> تحديث سعر صرف الدولار</h5>
+      <span class="small opacity-75">{{ today | date:'yyyy-MM-dd HH:mm:ss' }}</span>
+    </div>
+
+    <div class="card-body">
+      <form >
+        <!-- (ngSubmit)="updateDollar()" #dollarForm="ngForm" -->
+        <div class="mb-3">
+          <label for="markazi_1" class="form-label"><i class="fa-solid fa-money-bill-wave"></i> بيع مركزي</label>
+          <input
+            type="number"
+            id="markazi_1"
+            class="form-control"
+            name="markazi_1"
+
+            placeholder="بيع مركزي"
+            required />
+             <!-- [(ngModel)]="dollar.markazi_1" -->
+        </div>
+
+        <div class="mb-3">
+          <label for="markazi_2" class="form-label"><i class="fa-solid fa-money-bill"></i> شراء مركزي</label>
+          <input
+            type="number"
+            id="markazi_2"
+            class="form-control"
+            name="markazi_2"
+
+            placeholder="شراء مركزي"
+            required />
+               <!-- [(ngModel)]="dollar.markazi_2" -->
+        </div>
+
+        <div class="mb-3">
+          <label for="exchange" class="form-label"><i class="fa-solid fa-exchange-alt"></i> الحوالات</label>
+          <input
+            type="number"
+            id="exchange"
+            class="form-control"
+            name="exchange"
+
+            placeholder="الحوالات"
+            required />
+                   <!-- [(ngModel)]="dollar.exchange" -->
+        </div>
+
+        <div class="mt-4 text-center">
+          <button type="submit" class="btn btn-success px-4"
+           >
+           <!-- [disabled]="!dollarForm.form.valid" -->
+
+            <i class="fa-solid fa-rotate"></i> تحديث
+          </button>
+        </div>
+      </form>
+    </div>
+
+   <div class="card-footer text-center bg-light">
+  <small style="color: #333333;font-size: 18px;">
+    آخر تحديث:
+    <span class="update-date">{{ lastUpdate | date:'medium' }}</span>
+  </small>
+</div>
+
+
+  <div class="text-center mt-3">
+    <a
+      href="http://www.syria-stocks.com/dollarrange/getState3.php"
+      class="btn btn-outline-primary"
+      target="_blank">
+      <i class="fa fa-link"></i> أسعار سيريا ستوكس
+    </a>
+  </div>
+</div>
+
+
+
+
+
+</div>

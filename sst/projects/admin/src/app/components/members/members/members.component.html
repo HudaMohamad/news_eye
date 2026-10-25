@@ -1,0 +1,54 @@
+<div class="background">
+
+<div class="container mt-4" dir="rtl">
+  <h4 class="mb-3"><i class="fa-solid fa-users"></i> إدارة الأعضاء</h4>
+
+  <!-- ✅ جدول الأعضاء -->
+  <div class="table-responsive" *ngIf="members.length > 0; else noMembers">
+    <table class="table table-hover table-bordered bg-white text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>الاسم</th>
+          <th>كلمة المرور</th>
+          <th>البريد الإلكتروني</th>
+          <th>التحكم</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members; let i = index">
+          <td>{{ member.id }}</td>
+          <td>{{ member.name }}</td>
+          <td>{{ member.pass }}</td>
+          <td>{{ member.email }}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-warning me-1" title="تعديل" (click)="editMember(member.id)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button
+              class="btn btn-sm btn-danger"
+              title="حذف"
+              [disabled]="i === 0"
+              (click)="deleteMember(member.id)"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ✅ رسالة في حال عدم وجود أعضاء -->
+  <ng-template #noMembers>
+    <p class="text-center text-muted mt-3">لا يوجد أعضاء حالياً</p>
+  </ng-template>
+
+  <!-- ✅ زر إضافة عضو جديد -->
+  <div class="text-end mt-3">
+    <button class="btn btn-primary" (click)="addMember()">
+      <i class="fa-solid fa-user-plus"></i> إضافة عضو
+    </button>
+  </div>
+</div>
+</div>

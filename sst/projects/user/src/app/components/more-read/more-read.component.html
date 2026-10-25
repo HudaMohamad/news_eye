@@ -1,0 +1,34 @@
+<div class="more" dir="rtl">
+
+  <div class="cat-titel">
+    <h4 class="titel">الأكثر قراءة</h4>
+  </div>
+
+  <!-- حالة التحميل -->
+  <p class="state" *ngIf="loading">جاري التحميل...</p>
+
+  <!-- لا توجد بيانات -->
+  <p class="state" *ngIf="!loading && mostRead.length === 0">
+    لا توجد أخبار لهذه السنة
+  </p>
+
+  <!-- قائمة مرقّمة بأرقام كبيرة -->
+  <ol class="most-read" *ngIf="mostRead.length">
+    <li *ngFor="let post of mostRead; let i = index">
+      <span class="rank">{{ i + 1 }}</span>
+
+      <div class="most-read-body">
+        <a class="most-read-title" [routerLink]="post.link">
+          {{ post.post_title }}
+        </a>
+        <p class="news-meta">
+          <span><i class="fas fa-clock"></i> {{ post.post_date | date:'d/M/yyyy' }}</span>
+        </p>
+      </div>
+
+      <a class="most-read-img" [routerLink]="post.link">
+        <img [src]="post.post_image" [alt]="post.post_title">
+      </a>
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,394 @@
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+  padding: 60px 20px 60px 20px;
+  padding-right: 220px;
+  /* Default desktop offset */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .background {
+    padding-right: 20px;
+  }
+}
+
+/* ================== أقسام الموقع (Dropdown) ================== */
+.section-selector {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px !important;
+  margin-right: -10px;
+}
+
+.section-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.custom-dropdown {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-dropdown:focus {
+  border-color: #1ba5f5;
+  box-shadow: 0 0 0 0.25rem rgba(27, 165, 245, 0.15);
+}
+
+@media (max-width: 768px) {
+  .section-selector {
+    padding: 12px 15px;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ================== الجدول ================== */
+.custom-table {
+  font-size: 0.85rem;
+  table-layout: fixed;
+  /* 🔴 مهم جداً لتثبيت الأعمدة */
+  width: 100%;
+
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 6px 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+
+
+/* ================== صفوف الجدول ================== */
+.custom-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+
+
+.post-title-link {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: font-size 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .post-title-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    /* Slightly bolder on mobile for clarity */
+  }
+}
+
+.post-title-link:hover {
+  color: #667eea;
+}
+
+/* ================== الصور ================== */
+.custom-table img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* ================== الأزرار ================== */
+.custom-table .btn-sm {
+  padding: 4px 6px;
+  font-size: 0.75rem;
+}
+
+/* ================== عرض الأعمدة ================== */
+
+/* ================== عرض الأعمدة ================== */
+.custom-table th:nth-child(1),
+.custom-table td:nth-child(1) {
+  width: 70px;
+}
+
+/* # */
+
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2) {
+  width: 190px;
+}
+
+/* العنوان */
+
+.custom-table th:nth-child(3),
+.custom-table td:nth-child(3),
+.custom-table th:nth-child(4),
+.custom-table td:nth-child(4) {
+  width: 130px;
+}
+
+/* التاريخ والتحديث */
+
+.custom-table th:nth-child(5),
+.custom-table td:nth-child(5),
+.custom-table th:nth-child(6),
+.custom-table td:nth-child(6),
+.custom-table th:nth-child(7),
+.custom-table td:nth-child(7),
+.custom-table th:nth-child(8),
+.custom-table td:nth-child(8),
+.custom-table th:nth-child(9),
+.custom-table td:nth-child(9) {
+  width: 60px;
+}
+
+/* أهم، المصورة، بلوك، سلايدر، مثبت */
+
+.custom-table th:nth-child(10),
+.custom-table td:nth-child(10) {
+  width: 55px;
+}
+
+/* مشاهدات */
+
+.custom-table th:nth-child(11),
+.custom-table td:nth-child(11) {
+  width: 60px;
+}
+
+/* الصورة */
+
+.custom-table th:nth-child(12),
+.custom-table td:nth-child(12) {
+  width: 50px;
+}
+
+/* تعديل */
+
+.custom-table th:nth-child(13),
+.custom-table td:nth-child(13) {
+  width: 50px;
+}
+
+/* حذف */
+
+
+
+
+/* ================== موبايل ================== */
+@media (max-width: 768px) {
+  .custom-table {
+    font-size: 0.75rem;
+  }
+
+  .post-title-cell {
+    max-width: 160px;
+  }
+}
+
+
+/* ================== table-responsive ================== */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+  .table-wrapper {
+    margin-right: 0;
+  }
+}
+
+
+
+/* التأثير على رأس الجدول */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  /* يجعل الرأس ثابتًا أعلى المحتوى */
+  background-color: #fff;
+  /* إضافة خلفية لتفادي أي تداخل مع المحتوى */
+  z-index: 1;
+  /* جعل الرأس فوق باقي الجدول */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* تأثير الظل */
+}
+
+/* محاذاة جميع الأعمدة لليمين */
+.custom-table th,
+.custom-table td {
+  text-align: right;
+}
+
+/* تخصيص الجدول ليكون عرضيا مع بيانات أكبر */
+.scroll-container table {
+  width: max-content;
+  /* تأكد من أن الجدول يأخذ عرض المحتوى فقط */
+  min-width: 100%;
+  direction: rtl;
+  /* جعل محتوى الجدول RTL */
+}
+
+
+
+/* ...  */
+/* إزالة الخلفية الزرقاء وتعديل التصميم */
+.section-selector .custom-dropdown {
+  /* إزالة الخلفية الزرقاء */
+  background-color: white !important;
+  border: 2px solid #337ab7 !important;
+  /* بوردير أزرق */
+  border-radius: 25px !important;
+  /* بوردير مدور */
+
+  /* ✅ العرض يكون كامل عرض الشاشة */
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+
+  /* تحسين المظهر العام */
+  padding: 12px 20px !important;
+  font-size: 16px !important;
+  color: #333 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+
+  /* إزالة أي تأثيرات زرقاء أخرى */
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* تأثير عند المرور على القائمة المنسدلة */
+.section-selector .custom-dropdown:hover {
+  border-color: #1f5180 !important;
+  box-shadow: 0 4px 12px rgba(51, 122, 183, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+/* تأثير عند التركيز (النقر) */
+.section-selector .custom-dropdown:focus {
+  border-color: #337ab7 !important;
+  box-shadow: 0 0 0 3px rgba(51, 122, 183, 0.25) !important;
+  outline: none !important;
+}
+
+/* تنسيق الخيارات داخل القائمة */
+.section-selector .custom-dropdown option {
+  background-color: white !important;
+  color: #333 !important;
+  padding: 12px !important;
+  font-size: 15px !important;
+}
+
+/* تنسيق الخيار الأول (اختر القسم) */
+.section-selector .custom-dropdown option:first-child {
+  color: #6c757d !important;
+  font-style: italic;
+}
+
+/* إزالة الخلفية الزرقاء عند التحديد */
+.section-selector .custom-dropdown option:checked {
+  background: linear-gradient(0deg, #f0f7ff 0%, #f0f7ff 100%) !important;
+  color: #337ab7 !important;
+}
+
+/* تنسيق التسمية (label) */
+.section-selector .section-label {
+  font-size: 18px !important;
+  color: #333 !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  margin-bottom: 8px !important;
+}
+
+/* تنسيق الأيقونة في التسمية */
+.section-selector .section-label i {
+  color: #337ab7 !important;
+  font-size: 20px !important;
+}
+
+/* تنسيق الصف الرئيسي */
+.section-selector .row {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* تنسيق العمود الذي يحتوي على التسمية */
+.section-selector .col-auto {
+  width: 100% !important;
+  margin-bottom: 8px !important;
+}
+
+/* تنسيق العمود الذي يحتوي على القائمة المنسدلة */
+.section-selector .col-md-4 {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  padding: 0 !important;
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .section-selector .custom-dropdown {
+    min-width: 100% !important;
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+  }
+
+  .section-selector .section-label {
+    font-size: 16px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .section-selector .row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .section-selector .col-auto {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  .section-selector .col-md-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* للشاشات المتوسطة والكبيرة */
+@media (min-width: 769px) {
+  .section-selector .col-auto {
+    width: auto !important;
+    margin-bottom: 0 !important;
+  }
+
+  .section-selector .col-md-4 {
+    width: 33.333% !important;
+    max-width: 33.333% !important;
+    flex: 0 0 33.333% !important;
+  }
+}

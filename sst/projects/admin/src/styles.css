@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* 🎨 تخصيص شريط الأدوات والمحرر */
+.angular-editor-toolbar {
+  background-color: #f8f9fa !important;
+  border: 1px solid #d0d0d0 !important;
+  border-radius: 6px 6px 0 0;
+  padding: 6px 10px !important;
+}
+
+.angular-editor-toolbar button {
+  color: #333 !important;
+  background: transparent !important;
+  border: none !important;
+  margin: 0 3px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+.angular-editor-toolbar button:hover {
+  color: #007bff !important;
+  background-color: #e9ecef !important;
+  border-radius: 4px;
+}
+
+.angular-editor-textarea {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border: 1px solid #9a0f0f !important;
+  border-top: none !important;
+  border-radius: 0 0 6px 6px;
+  padding: 12px !important;
+  font-size: 16px;
+  direction: rtl;
+  text-align: right;
+}

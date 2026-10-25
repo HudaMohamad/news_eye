@@ -1,0 +1,19 @@
+<div class="upload-container">
+  <div class="form-group mb-3">
+    <label for="imageUpload">
+      <i class="fa-solid fa-image"></i> اختر صورة
+    </label>
+    <input type="file" id="imageUpload" (change)="onFileSelected($event)" class="form-control">
+  </div>
+
+  <div *ngIf="previewUrl">
+    <h5>معاينة الصورة:</h5>
+    <img [src]="previewUrl" alt="Image Preview" class="img-fluid" style="max-width: 100%; max-height: 300px;">
+  </div>
+
+  <div *ngIf="uploadMessage" class="mt-3">
+    <p>{{ uploadMessage }}</p>
+  </div>
+
+  <button (click)="onUpload()" class="btn btn-primary mt-3">رفع الصورة</button>
+</div>

@@ -1,0 +1,82 @@
+.custom-footer {
+  background: var(--brand-ink);
+  border-top: 3px solid var(--brand-accent);
+  color: #ffffff;
+  font-size: large;
+  padding: 15px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  gap: 10px;  
+    margin-left: -12px;
+  margin-right: -12px;              
+  flex-wrap: wrap;          
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+  display: flex;
+  gap: 0px;               
+  flex-wrap: nowrap;        
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-icons li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;         
+  transition: color 0.3s;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+/* اللون لكل أيقونة كما هو أصلي */
+.twitter-icon i {
+  color: #1DA1F2;
+}
+.youtube-icon i {
+  color: #E35d35;
+}
+.facebook-icon i {
+  color: #1877F2;
+}
+
+.social-icons li a:hover i {
+  opacity: 0.8; /* تغيّر بسيط عند الهوف */
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* رسبونسف للشاشات المتوسطة */
+@media (max-width: 992px) {
+  .social-icons li a {
+    font-size:16px;   
+         
+  }
+  .footer-text {
+    font-size: 14px;        
+  }
+}
+
+/* رسبونسف للشاشات الصغيرة */
+@media (max-width: 576px) {
+  .social-icons li a {
+    font-size: 12px;        
+  }
+  .footer-text {
+    font-size: 14px;        
+  }
+}
+
+.footer-logo {
+  height: 28px;
+  width: auto;
+}

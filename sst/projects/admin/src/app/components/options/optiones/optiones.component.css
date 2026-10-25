@@ -1,0 +1,76 @@
+ /* الخلفية العامة */
+ .background {
+  width: 50%;
+  min-height: 00vh;
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+   padding: 60px 50px; 
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+} 
+
+
+.container {
+  max-width: 500px;
+  direction: rtl;
+  text-align: right;
+}
+
+h4 {
+  color: #333;
+  font-weight: 600;
+}
+
+.form-label i {
+  margin-left: 6px;
+  color: #4f46e5;
+}
+
+input.form-control {
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  text-align: right;
+}
+
+input.form-control:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 0.15rem rgba(79, 70, 229, 0.25);
+}
+
+button.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+
+.background {
+  width: 100%;              /* ممكن تخليه 100% لو بدك كامل الشاشة */
+  min-height: 100vh;        /* 00vh غير صحيح → عدلناه */
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+  padding: 60px 50px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  /* بدل align-items: flex-start */
+  align-items: center;       /* الآن المحتوى في الوسط أفقياً */
+  margin: 0 auto;            /* يساعد على تمركز العنصر عند 50% عرض */
+}

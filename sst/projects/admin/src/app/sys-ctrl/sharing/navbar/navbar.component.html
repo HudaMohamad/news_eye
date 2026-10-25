@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-body" data-bs-theme="dark" dir="rtl">
+  <div class="container-fluid">
+    <!-- زر تبديل الشريط الجانبي (يظهر فقط على الشاشات الصغيرة والمتوسطة) -->
+    <button class="btn btn-outline-light d-lg-none me-2" type="button" (click)="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="navbar-nav me-auto d-flex align-items-center gap-3">
+
+      <!-- لوحة التحكم -->
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center gap-2" routerLink="/home">
+          <i class="fa-solid fa-gear"></i>
+          لوحة التحكم
+        </a>
+      </li>
+
+      <!-- رئيسية الموقع -->
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center gap-2" routerLink="/">
+          <i class="fa-solid fa-house"></i>
+          رئيسية الموقع
+        </a>
+      </li>
+
+      <!-- المستخدم -->
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center gap-2" role="button">
+          <i class="fa-solid fa-user"></i>
+          <!-- <span>Admin</span> -->
+        </a>
+      </li>
+
+      <!-- خروج -->
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center gap-2 text-danger" role="button" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket"> خروج</i>
+
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- الشريط الجانبي -->
+<app-sidebar></app-sidebar>
+
+<!-- هنا يظهر محتوى الصفحات الفرعية -->
+
+<router-outlet></router-outlet>

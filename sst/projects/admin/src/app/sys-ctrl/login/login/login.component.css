@@ -1,0 +1,155 @@
+/* خلفية الصفحة وتوسيط الكارت */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* align-items: flex-start; */
+}
+
+/* الكارت */
+.login-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 550px;
+  overflow: hidden;
+  text-align: right;
+
+}
+
+/* العنوان */
+.login-card .card-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.login-card .card-title i {
+  font-size:7rem;
+  color: #527dec;
+}
+
+/* غلاف الحقول */
+.field-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* الحقول */
+.login-card input {
+  width: 100%;
+  padding: 10px 42px 10px 10px; /* مساحة للأيقونة */
+  border-radius: 5px;
+  border: 2px solid #d8d8d8;
+  text-align: right;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* الأيقونات */
+.input-icon {
+  position: absolute;
+  top: 10px; /* ✅ تثبيت الأيقونة داخل الحقل */
+  right: 10px;
+  font-size: 1.5rem;
+  color: #555;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* عند التركيز */
+.login-card input:focus {
+  border-color: #527dec;
+  outline: none;
+}
+
+/* لا تغيّر الأيقونة عند التركيز */
+.login-card input:focus + .input-icon {
+  color: #555;
+}
+
+/* الزر */
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  background-color: #94aded;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #6886d2;
+}
+
+/* رسائل الخطأ */
+.text-danger {
+  font-size: 0.85rem;
+  margin-top: 5px;
+  color: #d9534f;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .login-card .card-title i {
+    font-size: 3.5rem;
+  }
+
+  .login-card button {
+    font-size: 1rem;
+  }
+}
+
+
+
+.btn-link {
+  text-decoration: none; /* يشيل الخط */
+}
+
+
+
+
+
+
+/* أيقونة كلمة المرور على اليسار */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper i.bi {
+  position: absolute;
+  top: 50%;
+  right: 15px;      /* الأيقونة على اليسار */
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* أيقونة البريد على اليمين */
+.field-wrapper .input-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;  /* على اليمين */
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* تعديل حاوية الإدخال لتناسب الأيقونات */
+.field-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,85 @@
+<div class="container pt-3">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center ms-auto">
+
+         <a  class="home-icon nav-link me-2 custom-hover">
+        مقالات الرأي <i class="fa-solid fa-solid fa-pencil-alt"></i>
+        </a>
+
+     <a routerLink="/home"
+          class="home-icon nav-link me-2 custom-hover"
+          (click)="scrollToSections()" >
+          / أقسام الموقع <i class="fa-solid fa-list"></i>
+        </a>
+
+    <a routerLink="/" class="home-icon nav-link me-2 custom-hover">
+      / الرئيسية <i class="fa-solid fa-house-chimney"></i>
+    </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container mt-3 more">
+  <div class="row">
+    <div class="col-md-12 mb-3" *ngFor="let item of displayedPosts">
+      <div class="card" dir="rtl">
+        <!-- ✅ الصورة -->
+        <img *ngIf="item.imageUrl; else defaultImage" [src]="item.imageUrl" alt="Image" class="card-img-top">
+
+        <ng-template #defaultImage>
+         <img src="assets/default-image.jpg" alt="Default Image" class="card-img-top">
+        </ng-template>
+
+      
+        <div class="card-body">
+ <h4 class="card-title">
+    <!-- عرض الأيقونة الخاصة بالفئة -->
+          <div *ngIf="item.category_icon" class="category-icon">
+             <i [class]="item.category_icon" class="category-icon-item"></i> <!-- إضافة الكلاس للأيقونة -->
+          </div>
+  <!-- رابط يؤدي إلى صفحة التفاصيل بناءً على الـ id -->
+  <a [routerLink]="['/part-8/sub-8', item.post_id]" class="custom-hover-title fa-solid ">
+    {{ item.post_title || 'عنوان غير موجود' }}
+  </a>
+</h4>
+<div class="post-body" [innerHTML]="item.post_body || 'تفاصيل غير موجودة'"></div>
+
+           <p class="news">
+            <i class="fas fa-user fa-sm"></i>
+            {{ item.post_author || 'غير معروف' }} /
+            <i class="fas fa-clock fa-sm"></i>
+            <span>{{ item.post_date | timeAgo }}</span>
+          </p>     
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <nav *ngIf="totalPages > 1" aria-label="Page navigation">
+    <ul class="pagination mt-3">
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="lastPage()">الأخير</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="nextPage()">»</button>
+      </li>
+      <li class="page-item" *ngFor="let page of pageNumbers" [class.active]="page === currentPage">
+        <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="prevPage()">«</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="firstPage()">الأول</button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+
+

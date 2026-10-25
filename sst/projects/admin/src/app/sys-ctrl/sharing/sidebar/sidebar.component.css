@@ -1,0 +1,264 @@
+.sidebar {
+  position: fixed;
+  width: 200px;
+  color: white;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 0.3s ease;
+  z-index: 1050;
+  /* Ensure it stays above content on mobile */
+  right: 0;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(100%);
+    /* Hide off-screen to the right */
+  }
+
+  .sidebar.visible {
+    transform: translateX(0);
+    /* Slide in */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+
+/* إزالة المسافات داخل القوائم */
+.sidebar .nav {
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* تنسيق عناصر القائمة */
+.sidebar .nav-item {
+  padding: 4px 0px;
+  /* border-radius: 6px; */
+  transition: background-color 0.3s ease;
+  border-bottom: 2px solid #444;
+  margin: 0 -10px;
+}
+
+/* ✅ تلوين العنصر النشط */
+.sidebar .nav-item.active,
+.sidebar .nav-item:hover {
+  background-color: #343a40;
+}
+
+/* تنسيق الروابط داخل القائمة */
+.sidebar .nav-link {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  /* border-radius: 8px; */
+  padding: 6px 5px;
+  display: flex;
+  justify-content: flex-end;
+  /* النص لليمين */
+  align-items: center;
+  text-align: right;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.sidebar .nav-item.active .nav-link {
+  color: #ffd54f;
+  /* لون مميز للنص النشط */
+  font-weight: 600;
+}
+
+/* الأيقونات */
+.sidebar i {
+  font-size: 1.2rem;
+}
+
+/* أيقونة السهم */
+.arrow-icon {
+  padding-left: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover .arrow-icon,
+.nav-item.active .arrow-icon {
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+/* jjjjjjjj */
+
+/* Responsive Design للـ Sidebar - فقط للشاشات المتوسطة والصغيرة */
+
+/* للشاشات المتوسطة (اقل من 992px) */
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 220px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.visible {
+    transform: translateX(0);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar .nav-link {
+    font-size: 14px;
+    padding: 8px 5px;
+  }
+
+  .sidebar .nav-item {
+    padding: 3px 0px;
+    border-bottom: 1.5px solid #444;
+    margin: 0 -10px;
+  }
+
+  .arrow-icon {
+    font-size: 0.8rem;
+    padding-left: 8px;
+  }
+
+  /* تحسين المسافات */
+  .sidebar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* للشاشات الصغيرة (اقل من 768px) */
+@media (max-width: 767.98px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar .nav-link {
+    font-size: 13px;
+    padding: 6px 5px;
+    gap: 8px;
+  }
+
+  .sidebar i {
+    font-size: 1rem;
+  }
+
+  .sidebar .nav-item {
+    padding: 2px 0px;
+    border-bottom: 1.5px solid #444;
+  }
+
+  .arrow-icon {
+    font-size: 0.75rem;
+    padding-left: 5px;
+  }
+}
+
+/* للشاشات الصغيرة جداً (اقل من 576px) */
+@media (max-width: 575.98px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .sidebar .nav-link {
+    font-size: 12px;
+    padding: 5px 5px;
+    gap: 6px;
+  }
+
+  .sidebar i {
+    font-size: 0.9rem;
+  }
+
+  .sidebar .nav-item {
+    padding: 1px 0px;
+    border-bottom: 1px solid #444;
+  }
+
+  .arrow-icon {
+    font-size: 0.7rem;
+    padding-left: 3px;
+  }
+
+  .sidebar.visible {
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* للشاشات الصغيرة جداً جداً (اقل من 400px) */
+@media (max-width: 399.98px) {
+  .sidebar {
+    width: 160px;
+  }
+
+  .sidebar .nav-link {
+    font-size: 11px;
+    padding: 4px 4px;
+  }
+
+  .sidebar i {
+    font-size: 0.85rem;
+  }
+
+  .sidebar .nav-item {
+    padding: 1px 0px;
+  }
+}
+
+/* تحسين ظهور المحتوى الرئيسي بجانب الـ sidebar */
+router-outlet+* {
+  flex: 1;
+  margin-right: 200px;
+  /* نفس عرض الـ sidebar الأصلي */
+  transition: margin-right 0.3s ease;
+  padding: 20px;
+}
+
+@media (max-width: 991.98px) {
+  router-outlet+* {
+    margin-right: 0 !important;
+    /* إلغاء المسافة عندما يكون الـ sidebar مخفي */
+  }
+}
+
+/* تحسين التمرير للـ sidebar الطويل */
+.sidebar {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* تحسين ظهور الـ sidebar على الشاشات الأفقية الصغيرة */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 991.98px) {
+  .sidebar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .sidebar .nav-item {
+    padding: 0px 0px;
+  }
+
+  .sidebar .nav-link {
+    padding: 3px 5px;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="background">
+
+  <!-- إضافة خبر جديد -->
+  <div class="section-title mt-4">
+    <h3>إضافة خبر عاجل</h3>
+  </div>
+
+  <form (ngSubmit)="addNews()" class="add-news-form">
+    <div class="input-group">
+      <input
+        name="newNews"
+        type="text"
+        placeholder="اكتب الخبر واضغط Enter أو على إشارة +"
+        class="form-control"
+        [(ngModel)]="newNews"
+        required
+      />
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-light" title="إضافة">
+          <i class="bi bi-plus-lg"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+<!-- عرض الأخبار الحالية -->
+<ul class="list-group mt-3 news-list">
+  <li
+    class="list-group-item news-item"
+    *ngFor="let pun of puns; let i = index"
+  >
+    <span class="news-text">{{ pun }}</span>
+
+    <button
+      class="btn btn-danger news-delete-btn"
+      (click)="deleteNews(i)"
+      title="حذف الخبر"
+    >
+      <i class="bi bi-trash"></i>
+    </button>
+  </li>
+</ul>
+
+
+</div>
+

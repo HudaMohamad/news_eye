@@ -1,0 +1,113 @@
+/* الأساسيات */
+#logo_row {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--brand-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 130px;
+  margin-left: -12px;
+  margin-right: -12px;
+  padding: 0 32px;
+    overflow: hidden;
+}
+
+#logo_row img {
+  height: 112px;
+  width: auto;
+  display: block;
+}
+
+/* شعار القناة */
+.tagline {
+  margin: 0;
+  color: var(--brand-ink);
+  font-size: 22px;
+  font-weight: 600;
+  border-right: 4px solid var(--brand-accent);
+  padding-right: 12px;
+}
+
+/* حركة ظهور الصورة */
+.zoom-in-left {
+  opacity: 0;
+  transform: scale(0.7) translateX(-400px);
+  animation: zoomInLeft 1s ease forwards;
+  cursor: pointer;
+}
+
+@keyframes zoomInLeft {
+  0%   { opacity: 0; transform: scale(0.6) translateX(-500px); }
+  60%  { opacity: 1; transform: scale(1.05) translateX(30px); }
+  100% { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+/* حركة العنوان */
+.fade-in-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInTitle 0.4s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInTitle {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* اهتزاز */
+#logo-wrapper {
+  display: inline-block;
+  transform-origin: top center;
+  cursor: pointer;
+}
+
+.swinging {
+  animation: swing 1s ease-in-out 1;
+}
+
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-4deg); }
+  50%  { transform: rotate(4deg); }
+  75%  { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ---------- Responsiveness ---------- */
+
+/* تابلت */
+@media (max-width: 992px) {
+  #logo_row {
+    height: 110px;
+    padding: 0 20px;
+  }
+
+  #logo_row img {
+    height: 92px;
+  }
+
+  .tagline {
+    font-size: 18px;
+  }
+}
+
+/* موبايل: الشعار بالنص بدون العبارة */
+@media (max-width: 600px) {
+  #logo_row {
+    height: 90px;
+    justify-content: center;
+  }
+
+  #logo_row img {
+    height: 76px;
+  }
+
+  .tagline {
+    display: none;
+  }
+}

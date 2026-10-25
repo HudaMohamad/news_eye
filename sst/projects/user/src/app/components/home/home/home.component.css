@@ -1,0 +1,268 @@
+/* =========================
+   الصفحة الرئيسية: بأسلوب المواقع الإخبارية العالمية
+   (عناوين قوية، فواصل رفيعة، بدون ظلال ولا صناديق ملوّنة)
+   ========================= */
+
+/* .kicker معرّفة بملف styles.css العام */
+
+.kicker-light {
+  color: #ffffff;
+  background-color: var(--brand-accent);
+  padding: 2px 10px;
+}
+
+/* =========================
+   الشبكة العلوية: الخبر الرئيسي + أهم الأخبار
+   ========================= */
+.top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 32px;
+  padding: 0 12px;
+}
+
+/* ---------- الخبر الرئيسي (السلايدر) ---------- */
+/* سلايدر Bootstrap مبني على اتجاه LTR: منخليه LTR ومنرجّع النص RTL جوّا العنوان */
+.hero {
+  position: relative;
+  direction: ltr;
+}
+
+.hero-caption {
+  direction: rtl;
+}
+
+.hero-link {
+  display: block;
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.hero-link img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* تدرّج غامق تحت العنوان لحتى يضل مقروء فوق أي صورة */
+.hero-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 80px 28px 40px;
+  background: linear-gradient(to top, rgba(1, 29, 38, 0.92) 0%, rgba(1, 29, 38, 0.6) 55%, transparent 100%);
+  text-align: right;
+}
+
+.hero-title {
+  margin: 4px 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.hero-link:hover .hero-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.hero-time {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* النقاط تحت السلايدر */
+.hero .carousel-indicators {
+  margin-bottom: 12px;
+}
+
+.hero .carousel-indicators [data-bs-target] {
+  width: 24px;
+  height: 3px;
+  border: 0;
+  background-color: #ffffff;
+}
+
+/* أسهم السلايدر: مربعات صغيرة بدل الأسهم الكبيرة */
+.hero .carousel-control-prev,
+.hero .carousel-control-next {
+  top: 50%;
+  bottom: auto;
+  width: 44px;
+  height: 44px;
+  transform: translateY(-50%);
+  background-color: rgba(1, 29, 38, 0.6);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hero:hover .carousel-control-prev,
+.hero:hover .carousel-control-next {
+  opacity: 1;
+}
+
+.hero .carousel-control-prev-icon,
+.hero .carousel-control-next-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- أهم الأخبار ---------- */
+.headline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.headline-list li {
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.headline-list li:last-child {
+  border-bottom: 0;
+}
+
+.headline-list a {
+  display: block;
+  padding: 12px 0;
+  text-decoration: none;
+  text-align: right;
+}
+
+.headline-list .kicker {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.headline-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--brand-ink);
+}
+
+.headline-list a:hover .headline-title {
+  color: var(--brand-accent-dark);
+}
+
+/* =========================
+   الخبر المميز
+   ========================= */
+.featured {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 28px;
+  align-items: center;
+  margin: 32px 12px 0;
+  padding: 24px 0;
+  border-top: 2px solid var(--brand-ink);
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.featured-img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.featured-body {
+  text-align: right;
+}
+
+.featured-title {
+  margin: 0 0 12px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.featured-title a {
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+.featured-title a:hover {
+  color: var(--brand-accent-dark);
+}
+
+.featured .news-meta {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.featured .news-meta i {
+  margin-left: 4px;
+}
+
+.read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--brand-accent-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand-accent);
+  padding-bottom: 2px;
+}
+
+.read-link:hover {
+  color: var(--brand-ink);
+  border-color: var(--brand-ink);
+}
+
+/* =========================
+   الأكثر قراءة + الفيديو
+   ========================= */
+.home-side-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  direction: rtl;
+  padding: 0 12px;
+}
+
+/* =========================
+   الموبايل والتابلت
+   ========================= */
+@media (max-width: 992px) {
+  .top-grid,
+  .home-side-layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-caption {
+    padding: 48px 16px 32px;
+  }
+
+  .hero-title {
+    font-size: 18px;
+  }
+
+  .featured-title {
+    font-size: 20px;
+  }
+}

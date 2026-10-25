@@ -1,0 +1,90 @@
+<div class="sticky-top">
+
+<nav class="navbar navbar-expand-lg bg-brand sticky-top border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+ 
+    <!-- أيقونة الرئيسية للجوال -->
+    <div class="home-icon mobile-only">
+      <a routerLink="/home" (click)="scrollToTop()">
+        <i class="fa-solid fa-house-chimney"></i>
+      </a>
+    </div>
+
+    <!-- زر الهمبرغر -->
+    <button class="navbar-toggler" type="button" (click)="toggleMenu($event)">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarNavDropdown" class="collapse navbar-collapse" [class.show]="isMenuOpen">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- زر البحث -->
+        <li class="nav-item dropdown-search">
+          <button (click)="openSearch()" class="btn btn-link text-white">
+            <span class="search-text">البحث</span>
+            <i class="fa-solid fa-magnifying-glass me-2"></i>
+          </button>
+        </li>
+
+        <!-- اتصل بنا -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="conact" routerLinkActive="active-link">
+            اتصل بنا <i class="fa-sharp fa-regular fa-envelope"></i>
+          </a>
+        </li>
+
+        <!-- من نحن -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about" routerLinkActive="active-link">
+            من نحن <i class="fa-regular fa-file-lines"></i>
+          </a>
+        </li>
+
+        <!-- أقسام الموقع -->
+        <li class="nav-item dropdown home-icon">
+          <a class="nav-link d-flex" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg class="dropdown-icon-desktop" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12,16 4,8 20,8"></polygon>
+            </svg>
+            أقسام الموقع
+            <i class="fa-solid fa-list ms-2"></i>
+          </a>
+          <ul class="dropdown-menu bg-white text-dark mt-2">
+            <li *ngFor="let part of parts" class="d-flex flex-row-reverse align-items-center px-2 py-1">
+              <i [class]="part.part_icon" style="color: #333;"></i>
+              <a [routerLink]="['/part-' + part.part_id]"
+                 style="color: #333; text-decoration: none; flex-grow: 1; direction: rtl;">
+                {{ part.part_name }}
+              </a>
+            </li>
+          </ul>
+        </li>
+ 
+      </ul>
+
+      <!-- أيقونة الرئيسية للديسكتوب -->
+      <div class="home-icon desktop-only">
+        <a routerLink="/home" (click)="scrollToTop()">
+          <i class="fa-solid fa-house-chimney"></i>
+        </a>
+      </div>
+  
+    </div>
+ 
+ 
+
+  </div>
+  
+</nav>
+
+
+ 
+    <div style="margin-top: 10px; margin-bottom: -5px; ">
+       <app-breaking-news></app-breaking-news>
+    </div>
+ 
+    
+  
+
+
+   </div>

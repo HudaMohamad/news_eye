@@ -1,0 +1,23 @@
+<div class="cat-titel" id="sections">
+  <h4 class="titel">
+    أقسام الموقع
+    <i class="fa-solid fa-globe-americas fa-xs"></i>
+  </h4>
+</div>
+
+<div class="swiper-container swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let item of parts">
+      <div [ngClass]="getCardClasses(item)">
+        <div class="card-icon">
+          <i [class]="getIconClasses(item, item.part_icon)"></i>
+        </div>
+
+        <a [routerLink]="['/', item.lnk]" [ngClass]="getButtonClasses(item)">
+          {{ item.part_name }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

@@ -1,0 +1,86 @@
+/* الخلفية العامة */
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+  /* padding: 60px 50px; */
+  padding-right: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.table-container {
+
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  overflow-x: auto;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.styled-table thead {
+  background: #f8f8f8;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.styled-table th {
+  font-weight: 700;
+}
+
+.title-cell {
+  white-space: nowrap;
+}
+
+.title-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.title-link i {
+  margin-right: 5px;
+  color: #6c757d;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+}
+
+.edit-btn {
+  background: #f4a100;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.edit-btn:hover {
+  background: #d98c00;
+}
+
+.edit-btn i {
+  font-size: 16px;
+}

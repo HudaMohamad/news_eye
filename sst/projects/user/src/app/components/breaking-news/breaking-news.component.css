@@ -1,0 +1,317 @@
+/* الشريط الرئيسي */
+
+
+/* عنوان Breaking News */
+#breakingTitle {
+  margin-left: 20px;
+  white-space: nowrap;
+  color: #fff;
+
+}
+
+/* الـ ticker مع خلفية بيضاء */
+#newsTicker {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fff; /* خلفية بيضاء */
+  color: var(--brand-ink);            /* نص غامق داخل الخلفية البيضاء */
+  padding: 0 0px;
+  /* border-radius: 4px; */
+  direction: rtl; /* اتجاه عربي */
+
+  
+}
+
+#newsTicker p {
+  display: inline-block;
+  margin: 0;
+  padding-right: 100%; /* بدل padding-left عشان يبدأ من اليمين */
+  animation: tickerTapeRTL 60s linear infinite;
+}
+
+/* تحريك النص من اليمين لليسار */
+@keyframes tickerTapeRTL {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+#newsTicker .date {
+  margin-left: 10px; /* بدل margin-right */
+  text-decoration: underline;
+}
+
+#newsTicker .story {
+  margin-left: 30px; /* بدل margin-right */
+}
+
+
+#breakingTicker {
+     position: relative;
+  /* position: fixed; */
+  /* top: 70px; */
+  margin-right: -12px;   /* المسافة من اليمين */
+  margin-left: -12px;   
+  height: 30px;
+  background-color: var(--brand-red);
+  display: flex;
+  align-items: center;
+  /* padding: 0 10px; */
+  font-size: 18px;
+  font-weight: 600;
+  direction: rtl;
+  overflow: hidden;
+  z-index: 999;
+    flex: 1;
+  overflow: hidden;
+}
+
+.container-fluid {
+  padding-top: 0;
+  margin-top:-16px;
+}
+#breakingTitle {
+  margin-right: 20px; /* المسافة من جهة اليمين */
+  white-space: nowrap;
+  color: #fff;
+}
+
+
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: tickerMove 40s linear infinite;
+}
+
+.story {
+  margin-left: 40px;
+  white-space: nowrap;
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+#breakingTicker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+
+.icon-sst-circle {
+  width: 60px;       /* حجم أكبر للدائرة */
+  height: 60px;      /* جعلها مربعة لتصبح دائرية صحيحة */
+  min-width: 50px;   /* لضمان عدم تصغيرها */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 25px; /* مسافة بين الأيقونة والنص */
+  
+  overflow: hidden;   /* لقص الصورة داخل الدائرة */
+  flex-shrink: 0;
+  /* background-color: #fff;  */
+}
+
+
+
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+/* =========================
+   Responsive – Mobile
+   ========================= */
+@media (max-width: 576px) {
+
+  #breakingTicker {
+    height: 26px;
+    font-size: 12px;
+  }
+
+  #breakingTitle {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .story {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+
+  .icon-sst-circle {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    font-size: 8px;
+    margin-left: 12px;
+    /* padding: 11px; */
+  }
+}
+
+/* =========================
+   Responsive – Tablet
+   ========================= */
+@media (min-width: 577px) and (max-width: 992px) {
+
+  #breakingTicker {
+    height: 28px;
+    font-size: 14px;
+  }
+
+  #breakingTitle {
+    font-size: 14px;
+    margin-right: 15px;
+  }
+
+  .story {
+    font-size: 14px;
+    margin-left: 25px;
+  }
+
+  .icon-sst-circle {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    font-size: 9px;
+    margin-left: 18px;
+        padding: 8px;
+  }
+}
+
+/* =========================
+   Desktop (افتراضي)
+   ========================= */
+@media (min-width: 993px) {
+
+  #breakingTicker {
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .story {
+    font-size: 16px;
+  }
+
+  .icon-sst-circle {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+}
+
+
+.background {
+  background-color: white;
+  padding-top: 10px ;  
+  margin-top: -10px;
+
+}
+
+
+
+.sst-logo {
+  width: 100%; /* أو حجم مناسب */
+  height: auto;
+ ;
+
+}
+
+.sst-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#breakingTicker {
+  overflow: hidden;
+}
+
+
+.desktop-only {
+  display: inline-flex;
+}
+
+.mobile-only {
+  display: none;
+}
+@media (max-width: 576px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inline-flex;
+  }
+
+  .mobile-icon {
+    width: 10px;
+    height: 10px;
+    min-width: 14px;
+    margin-left: 8px;
+  }
+
+  .mobile-story {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .mobile-only .icon-sst-circle {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-left: 20px;
+  }
+
+  .mobile-story {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================
+   أيقونة عين الحدث بالشريط (بتغلب على الأحجام اللي فوق)
+   ========================= */
+.icon-sst-circle,
+.mobile-only .icon-sst-circle {
+  width: 46px;
+  height: 26px;
+  min-width: 46px;
+  padding: 0;
+  margin-left: 14px;
+}
+
+@media (max-width: 992px) {
+  .icon-sst-circle,
+  .mobile-only .icon-sst-circle {
+    width: 40px;
+    height: 23px;
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .icon-sst-circle,
+  .mobile-only .icon-sst-circle {
+    width: 34px;
+    height: 20px;
+    min-width: 34px;
+    margin-left: 10px;
+  }
+}

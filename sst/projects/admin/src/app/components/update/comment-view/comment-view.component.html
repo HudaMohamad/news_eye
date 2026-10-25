@@ -1,0 +1,163 @@
+<div class="background">
+
+  <div class="container mt-4" dir="rtl">
+    <div class="card shadow-sm border-0">
+
+      <div class="card-header">
+        <h4>
+          <i class="fa-solid fa-edit"></i> تعديل الخبر
+        </h4>
+      </div>
+
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+
+          <!-- العنوان -->
+          <div class="mb-3">
+            <label class="form-label">عنوان الخبر</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="post.post_title"
+              name="title"
+              required
+              placeholder="اكتب عنوان الخبر هنا">
+          </div>
+
+          <!-- الأقسام -->
+     
+          <!-- الصورة الرئيسية -->
+          <div class="mb-3">
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              #fileInput
+              hidden>
+            <button type="button" class="btn btn-upload mt-3" (click)="fileInput.click()">
+              الصورة الرئيسية
+            </button>
+            <img
+              *ngIf="previewUrl"
+              [src]="previewUrl"
+              class="img-fluid mt-3 rounded preview-img"
+              style="max-height: 300px">
+          </div>
+
+
+
+
+
+<!-- زر رفع الصور الإضافية خارج المحرر -->
+<button
+  type="button"
+  class="btn-upload-orange mb-3"
+  (click)="extraFileInput.click()">
+  الصور الإضافية
+</button>
+
+<input
+  type="file"
+  #extraFileInput
+  multiple
+  accept="image/*"
+  hidden
+  (change)="onExtraImagesSelected($event)"
+/>
+
+<!-- محتوى الخبر -->
+<angular-editor
+  #editor
+  [(ngModel)]="post.post_body"
+  name="content"
+  [config]="editorConfig">
+</angular-editor>
+
+
+        
+
+          <!-- خيارات الخبر -->
+          <div class="mb-4">
+            <label class="form-label"><i class="fa-solid fa-toggle-on"></i> خيارات الخبر</label>
+            <div class="row">
+
+              <div class="col-md-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                         [(ngModel)]="post.options.published"
+                         name="published">
+                  <label class="form-check-label">منشور</label>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                         [(ngModel)]="post.options.main"
+                         name="main">
+                  <label class="form-check-label">أهم الأخبار</label>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                         [(ngModel)]="post.options.photographer"
+                         name="photographer">
+                  <label class="form-check-label">الأخبار المصورة</label>
+                </div>
+              </div>
+
+              <div class="col-md-4 mt-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                         [(ngModel)]="post.options.block"
+                         name="block">
+                  <label class="form-check-label">بلوك</label>
+                </div>
+              </div>
+
+              <div class="col-md-4 mt-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                         [(ngModel)]="post.options.inLast"
+                         name="inLast">
+                  <label class="form-check-label">يظهر في السلايدر</label>
+                </div>
+              </div>
+
+              <div class="col-md-4 mt-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                         [(ngModel)]="post.options.topmain"
+                         name="topmain">
+                  <label class="form-check-label">مثبت</label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- رسائل النجاح والخطأ -->
+          <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ successMessage }}
+            <button type="button" class="btn-close" aria-label="Close" (click)="successMessage=''"></button>
+          </div>
+
+          <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ errorMessage }}
+            <button type="button" class="btn-close" aria-label="Close" (click)="errorMessage=''"></button>
+          </div>
+
+          <!-- زر الحفظ -->
+          <div class="text-center mt-4">
+            <button class="btn btn-primary" type="submit" [disabled]="isSubmitting">
+              {{ isSubmitting ? 'جاري الحفظ...' : 'حفظ الخبر' }}
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

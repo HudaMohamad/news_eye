@@ -1,0 +1,18 @@
+<div class="video" dir="rtl">
+
+  <div class="cat-titel">
+    <h4 class="titel">فيديو</h4>
+  </div>
+
+  <!-- الفيديو بنسبة 16:9 -->
+  <div class="video-frame" *ngIf="videoUrl">
+    <iframe
+      [src]="videoUrl"
+      title="فيديو"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</div>

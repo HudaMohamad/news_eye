@@ -1,0 +1,77 @@
+
+<div class="all">
+
+<div class="follw">
+  <div class="right">
+    <div class="rew">
+      <div class="cat-titel">
+        <h4 class="titel">
+          تابعنا عبر
+          <i class="fas fa-thumbs-up fa-lg" style="color:white; font-size: 20px;"></i>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+  <ul class="social-icons list-inline mb-0">
+  <li class="list-inline-item" *ngIf="socialLinks?.twitter">
+    <a [href]="socialLinks.twitter" target="_blank" class="social twitter">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+  </li>
+
+  <li class="list-inline-item" *ngIf="socialLinks?.youtube">
+    <a [href]="socialLinks.youtube" target="_blank" class="social youtube">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </li>
+
+  <li class="list-inline-item" *ngIf="socialLinks?.facebook">
+    <a [href]="socialLinks.facebook" target="_blank" class="social facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </li>
+
+  <li class="list-inline-item" *ngIf="socialLinks?.telegram">
+    <a [href]="socialLinks.telegram" target="_blank" class="social telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+  </li>
+
+  <!-- Android -->
+  <li class="list-inline-item" *ngIf="socialLinks?.android">
+    <a [href]="socialLinks.android" target="_blank" class="social android">
+      تحميل تطبيق أندرويد<i class="fab fa-android"> </i>
+    </a>
+  </li>
+</ul>
+
+</div>
+
+
+
+
+
+  <!-- ////// -->
+
+
+<div class="adv">
+  <div class="right">
+    <div class="rew">
+      <div class="cat-titel">
+        <h4 class="titel">إعلانات
+       <i class="fas fa-bullhorn fa-lg" style="color:white ; font-size: 20px;"></i>
+        </h4>
+      </div>
+  </div>
+  </div>
+ <h3 class="Arabic-news">
+  <a class="titel-ar" [routerLink]="'/conact'">
+    <span class="fas fa-envelope" style="color: var(--brand-ink);"></span>
+    لإعلاناتكم تواصلوا معنا بالضغط هنا
+  </a>
+</h3>
+
+  </div>
+</div>
+

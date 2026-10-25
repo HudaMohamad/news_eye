@@ -1,0 +1,42 @@
+<div class="overlay" *ngIf="isOpen" (click)="close()">
+  <div class="search-box" dir="rtl" (click)="$event.stopPropagation()" role="dialog" aria-label="البحث">
+
+    <div class="search-header">
+      <i class="fas fa-search search-icon"></i>
+      <input
+        #searchInput
+        type="search"
+        placeholder="ابحث عن خبر..."
+        [(ngModel)]="term"
+        (input)="onSearch()"
+      />
+      <button class="close-btn" (click)="close()" aria-label="إغلاق">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="search-body">
+      <p class="hint" *ngIf="!term.trim()">اكتب حرفين أو أكثر من عنوان الخبر</p>
+
+      <p class="hint" *ngIf="loading">جاري البحث...</p>
+
+      <ul class="search-results" *ngIf="!loading && results.length">
+        <li *ngFor="let item of results">
+          <a class="result-item" [routerLink]="linkFor(item)">
+            <img [src]="item.post_image" [alt]="item.post_title">
+            <div class="result-text">
+              <span class="kicker">{{ sectionName(item.part) }}</span>
+              <h4 class="result-title">{{ item.post_title }}</h4>
+              <span class="news-meta">{{ item.post_date | timeAgo }}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <p class="no-results" *ngIf="!loading && searched && results.length === 0">
+        لا توجد نتائج للبحث عن "{{ term }}"
+      </p>
+    </div>
+
+  </div>
+</div>

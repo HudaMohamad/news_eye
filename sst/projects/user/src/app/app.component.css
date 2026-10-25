@@ -1,0 +1,16 @@
+.background-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--brand-page);
+  background-repeat: repeat;   
+  background-position: top left;  
+  background-attachment: fixed;   
+}
+
+
+/* تنسيق المحتوى */
+.container {
+  background-color: white;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+
+}

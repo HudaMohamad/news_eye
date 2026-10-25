@@ -1,0 +1,40 @@
+<div class="background">
+
+<div class="container mt-4">
+  <div class="table-responsive">
+    <table class="table table-hover bg-white">
+      <thead class="table-light">
+        <tr class="text-end">
+          <th scope="col">الترتيب</th>
+          <th scope="col">الاسم</th>
+          <th scope="col"
+          style="text-align: center;">يظهر في الروابط الإخبارية</th>
+          <th scope="col">التحكم</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let part of parts" class="text-end">
+          <td>{{ part.part_id }}</td>
+          <td>
+            <i [class]="part.part_icon" class="me-2"></i>
+            {{ part.part_name }}
+          </td>
+          <td class="text-center">
+            <i class="fas fa-check text-success"></i>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-danger me-1" title="حذف">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button class="btn btn-sm btn-warning" title="تعديل">
+              <i class="fas fa-edit"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+</div>

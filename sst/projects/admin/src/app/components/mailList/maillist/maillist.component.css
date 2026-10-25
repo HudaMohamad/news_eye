@@ -1,0 +1,107 @@
+
+/* الخلفية العامة */
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+  /* padding: 60px 50px; */
+  padding-right: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* 🌍 إعدادات الحاوية الرئيسية */
+.container {
+  width: 95%;
+  max-width: 1100px;
+  min-height: 90vh;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 📨 قائمة العناوين البريدية */
+.email-list, .news-list {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+/* ✉️ عناصر البريد */
+.email-list p {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.email-list i {
+  color: #007bff;
+  margin-left: 8px;
+}
+
+/* 📰 روابط الأخبار */
+.news-list a {
+  display: block;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+
+.news-list a:hover {
+  color: #007bff;
+}
+
+/* 🔘 زر الإرسال */
+button.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+button.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ⚙️ النصوص الصغيرة */
+p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 📱 تجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .container {
+    width: 98%;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  button.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+}

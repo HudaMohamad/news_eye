@@ -1,0 +1,24 @@
+
+
+.all {
+  display: flex;
+  justify-content: center;   
+  align-items: center;       
+  gap: 20px;                
+  min-height: 50vh;         
+}
+
+.imag img {
+  width: 350px;   /* حجم الشعار */
+  height: auto;
+}
+
+.pro {
+  max-width: 500px;  /* عرض النص */
+}
+
+.pro p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}

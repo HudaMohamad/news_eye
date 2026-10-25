@@ -1,0 +1,86 @@
+<div class="background">
+  <div class="container mt-4" dir="rtl">
+    <h4 class="mb-3">
+      <i class="fa-solid fa-gear"></i> إعدادات الموقع
+    </h4>
+
+    <form (ngSubmit)="saveSettings()" #settingsForm="ngForm">
+
+      <!-- فيس بوك -->
+      <div class="mb-3">
+        <label class="form-label">
+          <i class="fa-brands fa-facebook"></i> فيس بوك
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="رابط صفحة فيسبوك"
+          [(ngModel)]="settings.facebook"
+          name="facebook"
+        />
+      </div>
+
+      <!-- إكس -->
+      <div class="mb-3">
+        <label class="form-label">
+          <i class="fa-brands fa-x-twitter"></i> إكس
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="رابط حساب إكس"
+          [(ngModel)]="settings.x"
+          name="x"
+        />
+      </div>
+
+      <!-- يوتيوب -->
+      <div class="mb-3">
+        <label class="form-label">
+          <i class="fa-brands fa-youtube"></i> يوتيوب
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="رابط قناة يوتيوب"
+          [(ngModel)]="settings.youtube"
+          name="youtube"
+        />
+      </div>
+
+      <!-- تليجرام -->
+      <div class="mb-3">
+        <label class="form-label">
+          <i class="fa-brands fa-telegram"></i> تليجرام
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="رابط قناة تليجرام"
+          [(ngModel)]="settings.telegram"
+          name="telegram"
+        />
+      </div>
+
+      <!-- أندرويد -->
+      <div class="mb-3">
+        <label class="form-label">
+          <i class="fa-brands fa-android"></i> تطبيق أندرويد
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="رابط تطبيق الأندرويد (Google Play)"
+          [(ngModel)]="settings.android"
+          name="android"
+        />
+      </div>
+
+      <!-- زر الحفظ -->
+      <button type="submit" class="btn btn-primary w-100">
+        <i class="fa-solid fa-floppy-disk"></i> حفظ الإعدادات
+      </button>
+
+    </form>
+  </div>
+</div>

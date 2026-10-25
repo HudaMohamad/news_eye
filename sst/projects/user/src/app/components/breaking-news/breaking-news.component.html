@@ -1,0 +1,37 @@
+
+<div class="background">
+  <div id="breakingTicker">
+    <div id="breakingTitle">الأخبار العاجلة</div>
+
+    <div id="newsTicker">
+      <div class="ticker-track">
+
+    <!-- للشاشات الكبيرة -->
+<div class="ticker-item desktop-only" *ngFor="let pun of puns">
+  <div class="icon-sst-circle desktop-icon">
+    <img src="assets/brand/ain-eye.png" alt="عين الحدث" class="sst-logo">
+  </div>
+  <span class="story desktop-story">{{ pun }}</span>
+</div>
+
+<!-- للشاشات الصغيرة -->
+<div class="ticker-item mobile-only" *ngFor="let pun of puns">
+  <div class="icon-sst-circle mobile-icon">
+    <img src="assets/brand/ain-eye.png" alt="عين الحدث" class="sst-logo">
+  </div>
+  <span class="story mobile-story">{{ pun }}</span>
+</div>
+
+
+        <!-- نكرر نفس الأخبار لمنع الفراغ -->
+        <div class="ticker-item" *ngFor="let pun of puns">
+          <div class="icon-sst-circle">
+            <img src="assets/brand/ain-eye.png" alt="عين الحدث" class="sst-logo">
+          </div>
+          <span class="story">{{ pun }}</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+
+
+/* الخلفية العامة */
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+  /* padding: 60px 50px; */
+  padding-right: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+.container {
+  max-width:1200px;
+}
+.input-group {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+input.form-control {
+  border-radius: 8px 0 0 8px;
+}
+
+button.btn-success {
+  border-radius: 0 8px 8px 0;
+}
+
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+iframe {
+  border-radius: 6px;
+}
+/* mmm  */
+/* ===== الخلفية والحاويات ===== */
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== نموذج إضافة الفيديو ===== */
+.input-group {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 20px;
+}
+
+input.form-control {
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button.btn-success {
+  border-radius: 0 8px 8px 0;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+button.btn-success:hover {
+  background-color: #028a0f;
+}
+
+/* ===== الفيديو المعروض حالياً ===== */
+.text-center.mb-4 iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== الجدول ===== */
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+thead.table-light {
+  background-color: #e9ecef;
+}
+
+table th, table td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 12px 8px;
+}
+
+table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* ===== الفيديوهات المصغرة داخل الجدول ===== */
+.video-stye iframe {
+  width: 100%;
+  max-width: 300px;
+  height: 150px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== الأزرار داخل الجدول ===== */
+button.btn-danger, button.btn-primary {
+  margin: 2px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+button.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+button.btn-primary:hover {
+  background-color: #004085;
+  border-color: #003768;
+}
+
+/* ===== رسالة لا يوجد فيديوهات ===== */
+p.text-center.text-muted {
+  font-size: 18px;
+  margin-top: 30px;
+  color: #6c757d;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column-reverse;
+  }
+
+  input.form-control, button.btn-success {
+    border-radius: 8px !important;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .video-stye iframe {
+    max-width: 100%;
+    height: 200px;
+  }
+
+  .text-center.mb-4 iframe {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  table th, table td {
+    font-size: 12px;
+    padding: 8px 5px;
+  }
+
+  button.btn-danger, button.btn-primary {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

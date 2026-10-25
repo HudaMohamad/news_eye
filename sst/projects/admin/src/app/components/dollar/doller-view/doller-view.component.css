@@ -1,0 +1,74 @@
+
+/* الخلفية العامة */
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-color:#f1f3f4;
+  /* color: #333; */
+  direction: rtl;
+  padding: 60px 50px;
+  padding-right: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.container {
+  background-color: #f1f3f4;
+  width: 100%;
+  max-width: 95%;
+  margin: auto;
+  max-width: 1500px;
+}
+
+.card {
+  width: 100%;
+  /* border-radius: 12px; */
+  overflow: hidden;
+  /* padding: 15px; */
+    background-color: #f1f3f4;
+}
+
+.card-header {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 24px;
+}
+
+.form-label {
+  font-size: 20px;   /* عدّل الرقم كما تحب */
+  /* font-weight: 600;   */
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  /* gap: 8px;           */
+}
+
+
+.form-label i {
+font-size: 20px;
+  margin-left: 6px;
+  color: #007bff;
+}
+
+input.form-control {
+  text-align: right;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #f8f9fa;
+}
+
+.btn-success {
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.btn-outline-primary {
+  border-radius: 8px;
+  border: solid 2px ;
+  font-size: 20px;
+}
+
+

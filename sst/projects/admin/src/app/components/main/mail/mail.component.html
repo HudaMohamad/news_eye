@@ -1,0 +1,119 @@
+<div class="background">
+  <div class="container-fluid px-4" dir="rtl">
+
+    <!-- Welcome Header -->
+    <div class="welcome-header mb-4 pt-2">
+      <h1> لوحة التحكم 👋</h1>
+      <p>نظرة عامة على نشاط الموقع وإحصائيات الزيارات</p>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-overlay">
+      <div class="spinner-border text-primary mb-3" role="status"></div>
+      <p class="text-muted">جاري تحميل الإحصائيات...</p>
+    </div>
+
+    <!-- Main Content -->
+    <div *ngIf="!loading">
+
+      <!-- Critical Analytics Row -->
+      <div class="row g-4 mb-5">
+
+        <!-- Visits Today -->
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-card stat-card-blue">
+            <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+            <div class="stat-content">
+              <h2 class="stat-number">{{ analytics.todayVisits | number }}</h2>
+              <p class="stat-label">زيارات اليوم</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Visits -->
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-card stat-card-orange">
+            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="stat-content">
+              <h2 class="stat-number">{{ analytics.totalVisits | number }}</h2>
+              <p class="stat-label">إجمالي الزيارات</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Section -->
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-card stat-card-green">
+            <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+            <div class="stat-content">
+              <h2 class="stat-number text-truncate" [title]="analytics.topSection"
+                style="max-width: 100%; font-size: 1.5rem;">
+                {{ analytics.topSection }}
+              </h2>
+              <p class="stat-label">القسم الأكثر نشاطاً</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Post -->
+        <div class="col-lg-3 col-md-6">
+          <div class="stat-card stat-card-red">
+            <div class="stat-icon"><i class="fas fa-fire"></i></div>
+            <div class="stat-content">
+              <h2 class="stat-number">#{{ analytics.topPostId }}</h2>
+              <p class="stat-label">المقال الأكثر قراءة</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Management & Content Stats -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="stat-card stat-card-blue" style="background: linear-gradient(135deg, #0f172a 0%, #334155 100%);">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-content">
+              <h2 class="stat-number">{{ stats.total_members | number }}</h2>
+              <p class="stat-label">عدد الكتّاب والأعضاء</p>
+            </div>
+            <a routerLink="/home/members" class="stat-link mt-3">
+              إدارة المستخدمين <i class="fas fa-chevron-left ms-2" style="font-size: 0.7rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="stat-card stat-card-blue" style="background: linear-gradient(135deg, #1e293b 0%, #475569 100%);">
+            <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
+            <div class="stat-content">
+              <h2 class="stat-number">{{ stats.total_posts | number }}</h2>
+              <p class="stat-label">إجمالي المقالات في الأرشيف</p>
+            </div>
+            <a routerLink="/home/new" class="stat-link mt-3">
+              عرض الأخبار <i class="fas fa-chevron-left ms-2" style="font-size: 0.7rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- System Tools -->
+      <div class="row justify-content-end">
+        <div class="col-auto">
+          <div class="card card-glass">
+            <div class="d-flex align-items-center gap-4">
+              <div>
+                <h5 class="mb-1 fw-bold">صيانة النظام</h5>
+                <p class="text-muted small mb-0">تحسين الأداء وتفريغ الملفات المؤقتة</p>
+              </div>
+              <button class="btn btn-danger btn-utility shadow-sm" (click)="clearCache()">
+                <i class="fas fa-broom"></i>
+                مسح الكاش
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

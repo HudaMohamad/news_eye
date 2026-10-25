@@ -1,0 +1,25 @@
+# ----- Secrets -----
+backend/.env
+
+# ----- Dependencies -----
+node_modules/
+
+# ----- Angular build output & cache -----
+sst/dist/
+sst/.angular/
+
+# ----- Uploaded media (created by the admin panel at runtime) -----
+backend/upload/*
+!backend/upload/.gitkeep
+
+# ----- Database dumps (only database/schema.sql is tracked) -----
+*.sql
+!database/schema.sql
+!backend/security_migration.sql
+
+# ----- OS / editor -----
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.log

@@ -1,0 +1,62 @@
+<div class="background">
+
+<div class="container mt-4" dir="rtl">
+  <h4 class="mb-3"><i class="fa-solid fa-envelope-circle-check"></i> إرسال آخر الأخبار للعناوين البريدية</h4>
+
+  <div class="row">
+    <!-- ✅ قائمة البريد الإلكتروني -->
+    <div class="col-lg-6 mb-3" style="max-height: 12em; overflow: auto;">
+      <div class="card p-3">
+        <h6 class="fw-bold mb-2"><i class="fa-solid fa-at"></i> قائمة العناوين البريدية</h6>
+        <div *ngFor="let mail of mailList">
+          <p class="mb-1"><i class="fa-solid fa-envelope text-primary"></i> {{ mail }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ آخر الأخبار -->
+    <div class="col-lg-6 mb-3" style="max-height: 12em; overflow: auto;">
+      <div class="card p-3">
+        <h6 class="fw-bold mb-2"><i class="fa-solid fa-newspaper"></i> آخر الأخبار</h6>
+        <div *ngFor="let news of lastNews">
+          <a class="btn btn-link p-0" [href]="news.link" target="_blank">
+            {{ news.title }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ زر الإرسال -->
+    <div class="col-12 mt-3 text-center">
+      <button
+        class="btn btn-primary px-4 py-2"
+        (click)="sendMails()"
+        [disabled]="loading"
+      >
+        <i class="fa-solid fa-paper-plane"></i>
+        {{ loading ? 'جاري الإرسال...' : 'إرسال آخر الأخبار للعناوين البريدية' }}
+        <span class="badge bg-light text-dark ms-2">{{ mailList.length }}</span>
+      </button>
+
+      <p class="text-muted mt-2 small">
+        ⚠️ يُرجى تنفيذ العملية مرة واحدة يومياً لتخفيف الضغط على السيرفر.
+      </p>
+
+      <!-- ✅ نتيجة العملية -->
+      <div class="result mt-3">
+        <div *ngIf="loading" class="text-info">
+          <i class="fa fa-spinner fa-spin"></i> جاري الإرسال، يرجى الانتظار...
+        </div>
+
+        <div *ngIf="resultMessage && !loading" [class.text-success]="success" [class.text-danger]="!success">
+          {{ resultMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>

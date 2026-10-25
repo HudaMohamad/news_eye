@@ -1,0 +1,117 @@
+<div class="background">
+
+  <!-- أقسام الموقع -->
+  <div class="container my-3 section-selector">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <label for="categorySelect" class="section-label mb-0">
+          <i class="bi bi-funnel-fill me-2"></i> عرض حسب القسم
+        </label>
+      </div>
+      <div class="col-md-4">
+        <select id="categorySelect" class="form-select custom-dropdown" [(ngModel)]="selectedCategoryId"
+          (change)="onDropdownChange()">
+          <option [ngValue]="null">
+            <i class="bi bi-funnel-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp; اختر القسم
+          </option>
+          <option *ngFor="let part of parts" [ngValue]="part.part_id">&nbsp;&nbsp;&nbsp;&nbsp;
+            {{ part.part_name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="text-center py-1">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">جاري التحميل...</span>
+    </div>
+  </div>
+
+  <!-- Posts Table -->
+  <div *ngIf="!loading" class="table-wrapper">
+    <table class="table table-hover bg-white text-center align-middle custom-table" dir="rtl">
+      <thead class="sticky-header">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">العنوان</th>
+          <th scope="col">التاريخ</th>
+          <th scope="col">التحديث</th>
+          <th scope="col">الأهم</th>
+          <th scope="col">المصورة</th>
+          <th scope="col">بلوك</th>
+          <th scope="col">سلايدر</th>
+          <th scope="col">مثبت</th>
+          <th scope="col">مشاهدات</th>
+          <th scope="col">الصورة</th>
+          <th scope="col">تعديل</th>
+          <th scope="col">حذف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td class="fw-bold text-primary">{{ post.post_id }}</td>
+          <td class="text-end post-title-cell">
+            <a class="post-title-link" [attr.data-id]="post.post_id">
+              {{ post.post_title }}
+            </a>
+          </td>
+          <td>{{ post.post_date | date:'yyyy/MM/dd HH:mm' }}</td>
+          <td>{{ post.post_update | date:'yyyy/MM/dd HH:mm' }}</td>
+
+          <!-- main -->
+          <td>
+            <i *ngIf="post.main === 1" class="fas fa-check text-primary"></i>
+            <span *ngIf="post.main !== 1">-</span>
+          </td>
+
+          <!-- photographer -->
+          <td>
+            <i *ngIf="post.photographer === 1" class="fas fa-check text-primary"></i>
+            <span *ngIf="post.photographer !== 1">-</span>
+          </td>
+
+          <!-- block -->
+          <td>
+            <i *ngIf="post.block === 1" class="fas fa-check text-primary"></i>
+            <span *ngIf="post.block !== 1">-</span>
+          </td>
+
+          <!-- inLast -->
+          <td>
+            <i *ngIf="post.inLast === 1" class="fas fa-check text-primary"></i>
+            <span *ngIf="post.inLast !== 1">-</span>
+          </td>
+
+          <!-- topmain -->
+          <td>
+            <i *ngIf="post.topmain === 1" class="fas fa-check text-primary"></i>
+            <span *ngIf="post.topmain !== 1">-</span>
+          </td>
+
+          <td>{{ post.post_visits_num || 0 }}</td>
+          <td>
+            <img *ngIf="post.post_image" [src]="post.post_image" alt="Post Image" class="img-thumbnail">
+          </td>
+
+          <!-- زر التعديل -->
+          <td>
+            <a [routerLink]="['/home/comment-view', post.post_id]" [queryParams]="{ category_id: selectedCategoryId }"
+              class="btn btn-sm btn-warning">
+              <i class="fas fa-edit"></i>
+            </a>
+          </td>
+
+          <!-- زر الحذف -->
+          <td>
+            <button class="btn btn-sm btn-danger" [disabled]="!selectedCategoryId"
+              (click)="selectedCategoryId && deletePost(post.post_id, selectedCategoryId)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

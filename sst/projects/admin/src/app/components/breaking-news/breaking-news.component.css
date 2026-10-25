@@ -1,0 +1,135 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+/* الخلفية العامة */
+.background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(242, 242, 242);
+  color: #333;
+  direction: rtl;
+  padding: 60px 50px;
+  padding-right: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* العناوين */
+.section-title h3 {
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+   /* خط جانبي أحمر أنيق */
+  padding-right: 10px;
+}
+
+/* نموذج الإدخال */
+.add-news-form {
+  width: 100%;
+  max-width: 1000px;
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+/* حقل الإدخال */
+.form-control {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+  padding: 13px 15px;
+  font-size: 1rem;
+  text-align: right;
+  transition: all 0.3s ease;
+  min-width: 0;
+  margin-left: 40px;
+  
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #b31d1d;
+  box-shadow: 0 0 5px rgba(179, 29, 29, 0.5);
+}
+
+/* زر الإضافة */
+.input-group-append .btn {
+  padding: 8px 20px;
+  border-radius: 0 8px 8px 0;
+  background-color: #b31d1d;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  border: none;
+}
+
+
+
+/* تأثيرات عامة */
+.section-title,
+.add-news-form {
+  margin-left: auto;
+}
+
+
+/* llll */
+
+/* قائمة الأخبار */
+.news-list {
+  width: 100%;
+  max-width: 1000px;
+  margin-right: -40px;
+  /* margin-left: 60px; */
+}
+
+/* عنصر الخبر = نفس input-group */
+.news-item {
+  display: flex;
+  flex-direction: row-reverse; /* RTL */
+  align-items: center;
+  padding: 0;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  /* margin-bottom: 10px; */
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* نص الخبر (مثل form-control) */
+.news-text {
+  flex: 1;
+  padding: 13px 15px;
+  font-size: 1rem;
+  text-align: right;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* زر الحذف (مثل زر +) */
+.news-delete-btn {
+  border-radius: 0 8px 8px 0;
+  padding: 10px 18px;
+  font-size: 1.1rem;
+  border: none;
+  background-color: #b31d1d;
+  transition: 0.3s;
+}
+
+.news-delete-btn:hover {
+  background-color: #8f1515;
+}

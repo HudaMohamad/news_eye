@@ -1,0 +1,94 @@
+<!-- نسخة للشاشات الكبيرة -->
+<div class="container pt-3 large-screen-navbar">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center ms-auto">
+
+        <!-- عنوان الخبر -->
+        <span class="nav-link dark-blue me-2">
+           {{ breadcrumbTitle }} <i class="fa-solid fa-file-alt"></i>
+        </span>
+
+        <a routerLink="/part-5" class="home-icon nav-link me-2 custom-hover">
+          / الأخبار الرياضية <i class="fa-solid fa-solid fa-futbol"></i>
+        </a>
+
+        <a routerLink="/home"
+           class="home-icon nav-link me-2 custom-hover"
+           (click)="scrollToSections()">
+           / أقسام الموقع <i class="fa-solid fa-list"></i>
+        </a>
+
+        <a routerLink="/" [queryParamsHandling]="'preserve'" class="home-icon nav-link me-2 custom-hover">
+          / الرئيسية <i class="fa-solid fa-house-chimney"></i>
+        </a>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- نسخة للشاشات الصغيرة -->
+<div class="container pt-3 small-screen-navbar">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+      <div class="d-flex align-items-center ms-auto">
+
+        <a routerLink="/part-5" class="home-icon nav-link me-2 custom-hover">
+          <i class="fa-solid fa-solid fa-futbol"></i>
+          / الأخبار الرياضية  
+        </a>
+
+        <a routerLink="/home"
+           class="home-icon nav-link me-2 custom-hover"
+           (click)="scrollToSections()"><i class="fa-solid fa-list"></i>
+           / أقسام الموقع 
+        </a>
+
+        <a routerLink="/" [queryParamsHandling]="'preserve'" class="home-icon nav-link me-2 custom-hover">
+          <i class="fa-solid fa-house-chimney"></i>
+          / الرئيسية 
+        </a>
+
+      </div>
+       
+      <span class="nav-link dark-blue mt-1">
+        {{ breadcrumbTitle }} 
+      </span>
+
+    </div>
+  </nav>
+</div>
+
+
+<div class="con mt-3" *ngIf="!loading && !error; else loadingOrError">
+  <div class="div-1 mb-3">
+    <h3 [innerHTML]="newsTitle" class="fw-bold"></h3>
+    <img [src]="newsImage" alt="خبر الصورة" class="img-fluid rounded">
+  </div>
+
+  <div class="div-2 mb-3">
+    <p [innerHTML]="newsContent" class="fs-5"></p>
+  </div>
+
+  <!-- الكاتب ووقت النشر -->
+  <div class="news-meta mt-3 d-flex align-items-center gap-3" dir="rtl">
+    <p class="mb-0 text-secondary">
+      <i class="fas fa-user fa-sm"></i>   {{ newsAuthor }}
+    </p>
+    <p class="mb-0 text-secondary">
+      <i class="fas fa-clock fa-sm"></i>
+      <span> {{  newsDate | timeAgo }}</span>
+    </p>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="text-center py-5">
+    <div *ngIf="loading" class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p *ngIf="error" class="text-danger fs-5 mt-3">{{ error }}</p>
+  </div>
+</ng-template>

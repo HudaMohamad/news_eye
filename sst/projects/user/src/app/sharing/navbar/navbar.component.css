@@ -1,0 +1,475 @@
+.navbar {
+  margin-left: -12px;
+  margin-right: -12px;
+  padding-right: 15px;
+  /* margin-bottom: 0px; */
+}
+
+
+/* روابط navbar والنصوص مع الأيقونات معًا */
+.navbar a {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+/* أيقونات Font Awesome */
+.navbar i {
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover i {
+  color: #ffffff;
+}
+
+/* السهم الصغير للـ dropdown */
+.navbar .dropdown-toggle::after {
+  float: left;
+  margin-right: 0.5em;
+  margin-left: 0;
+  position: relative;
+  top: 2px;
+}
+
+/* إزالة البوردر والظل عن input و button */
+form .form-control,
+form .btn {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.3s ease;
+}
+
+/* تغيير لون نص البحث عند hover فقط على النص */
+form .form-control:hover {
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+
+
+/* أيقونة البيت داخل navbar */
+.navbar .fa-house-chimney {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.3s ease;
+}
+
+.navbar .fa-house-chimney:hover {
+  color: #ffffff;
+}
+
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding-left: 25px;
+}
+
+.dropdown-search {
+  margin-right: auto;
+  /* في RTL هذا يدفع العنصر إلى أقصى اليسار */
+}
+
+
+
+.search-container i,
+.search-container .search-text {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.3s ease;
+  padding: 2px;
+}
+
+.search-container:hover i,
+.search-container:hover .search-text {
+  color: #ffffff;
+
+}
+
+
+.home-icon i {
+  font-size: 18px;
+  color: rgb(112, 112, 112);
+  transition: color 0.3s;
+  margin-left: 10px
+}
+
+.home-icon:hover i {
+  color: white;
+}
+
+
+/* الرابط العادي */
+.navbar .nav-link {
+  color: #a1a1a1;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+/* الرابط النشط */
+.navbar .nav-link.active-link {
+  background-color: #131111;
+  color: #fff;
+  padding: 1rem 1rem;
+  margin-top: -7px;
+  margin-bottom: -7px
+}
+
+
+
+/* ///القائمة المنسدلة  */
+
+/* 111111 */
+nav[data-bs-theme="dark"] .dropdown-menu {
+  background-color: #ffffff !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+}
+
+nav[data-bs-theme="dark"] .dropdown-menu li:hover {
+  background-color: #f2f2f2 !important;
+  color: #000 !important;
+}
+
+
+/* ✅ خلفية القائمة المنسدلة باللون الأبيض */
+.dropdown-menu {
+  background-color: #ffffff !important;
+
+}
+
+
+
+/* ✅ عند تمرير الماوس */
+.dropdown-menu li:hover {
+  background-color: #f2f2f2;
+  /* رمادي فاتح عند hover */
+}
+
+
+
+
+
+
+
+/* 00 */
+
+/* شاشات متوسطة - تابلت (768px - 1100px) */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .navbar-nav {
+    padding-left: 10px;
+    gap: 5px;
+  }
+
+  .navbar .nav-link {
+    padding: 0.5rem 0.5rem;
+    font-size: 14px;
+  }
+
+  .search-text {
+    display: none;
+    /* إخفاء كلمة "بحث" في التابلت لتوفير مساحة، والاكتفاء بالأيقونة */
+  }
+}
+
+@media (max-width: 991px) {
+
+  /* نجعل collapse تظهر العناصر من الجهة اليمنى */
+  #navbarNavDropdown .navbar-nav {
+    text-align: right;
+    direction: rtl;
+    margin-top: 10px;
+    display: flex;
+    /* لازم يكون flex */
+    flex-direction: column-reverse;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  /* كل رابط ياخذ سطر كامل */
+  #navbarNavDropdown .nav-item {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
+
+/* الافتراضي: اخفاء الكلاسات حسب الشاشة */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* عند الشاشات الصغيرة */
+@media (max-width: 991px) {
+  .mobile-only {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1000;
+
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .dropdown-search {
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333333;
+    padding: 0.5rem 1rem;
+    margin-top: 5px;
+  }
+
+  /* تنسيق العناصر داخل البحث */
+  .dropdown-search .search-container {
+    width: 100%;
+    gap: 5px;
+    justify-content: flex-start;
+  }
+}
+
+/* الافتراضي: ظهور الأيقونة على الديسكتوب */
+.dropdown-icon-desktop {
+  display: inline-block;
+}
+
+/* على الشاشات الصغيرة (≤991px) نخفيها */
+@media (max-width: 991px) {
+  .dropdown-icon-desktop {
+    display: none;
+
+  }
+}
+
+
+
+/* 888888888888888888888 */
+
+
+/* ✅ إصلاح الاتجاه على الشاشات الصغيرة */
+@media (max-width: 991px) {
+  :host ::ng-deep .dropdown-menu li {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    /* ← يعكس الاتجاه */
+    align-items: center !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+
+  }
+
+  :host ::ng-deep .dropdown-menu li i {
+    margin-left: 0 !important;
+    margin-right: 8px !important;
+    color: #ffffff !important;
+  }
+
+  :host ::ng-deep .dropdown-menu li a {
+    color: #ffffff !important;
+
+  }
+}
+
+
+
+
+/* 333333 */
+
+/* تنسيق موحد لعناصر القائمة المنسدلة */
+.dropdown-menu {
+  /* direction: rtl;  */
+  text-align: right;
+  min-width: 190px;
+  background-color: #333333 !important;
+}
+
+.dropdown-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  /* مسافة صغيرة وواضحة بين الأيقونة والنص */
+
+  padding: 0.5rem 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+
+/* ✅ ضبط اتجاه عناصر القائمة المنسدلة في الوضع العربي */
+@media (max-width: 991px) {
+  :host ::ng-deep .dropdown-menu li {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    /* يجعل الأيقونة على اليمين والنص على اليسار */
+    align-items: center !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+  }
+
+  :host ::ng-deep .dropdown-menu li i {
+    margin-left: 8px !important;
+    /* مسافة بين الأيقونة والنص */
+    margin-right: 0 !important;
+    /* color: #333 !important;  */
+  }
+
+  :host ::ng-deep .dropdown-menu li a {
+    text-align: right !important;
+    direction: rtl !important;
+  }
+
+  .dropdown-menu li:hover {
+    background-color: #757575;
+    /* لون الخلفية عند hover */
+
+  }
+
+
+}
+
+
+
+
+
+
+/* ✅ في الشاشات الكبيرة */
+@media (min-width: 992px) {
+  nav[data-bs-theme="dark"] .dropdown-menu {
+    background-color: #ffffff !important;
+    /* أبيض */
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+  }
+
+  nav[data-bs-theme="dark"] .dropdown-menu li:hover {
+    background-color: #f2f2f2 !important;
+    /* رمادي فاتح */
+    color: #000 !important;
+  }
+}
+
+/* ✅ في الشاشات الصغيرة (رسبونسف) */
+@media (max-width: 991px) {
+  nav[data-bs-theme="dark"] .dropdown-menu {
+    background-color: #333333 !important;
+    /* غامق */
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  nav[data-bs-theme="dark"] .dropdown-menu li {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    /* الأيقونة على اليمين */
+    align-items: center !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+  }
+
+  nav[data-bs-theme="dark"] .dropdown-menu li i {
+    margin-left: 8px !important;
+    /* مسافة بين الأيقونة والنص */
+    margin-right: 0 !important;
+    color: #ffffff !important;
+  }
+
+  nav[data-bs-theme="dark"] .dropdown-menu li a {
+    color: #ffffff !important;
+    direction: rtl !important;
+    text-align: right !important;
+    text-decoration: none !important;
+  }
+
+  nav[data-bs-theme="dark"] .dropdown-menu li:hover {
+    background-color: #444444 !important;
+    /* رمادي أفتح قليلاً عند hover */
+    color: #ffffff !important;
+  }
+}
+
+/* ✅ إخفاء الأيقونات داخل القائمة المنسدلة فقط في الشاشات الصغيرة */
+@media (max-width: 991px) {
+  nav[data-bs-theme="dark"] .dropdown-menu li i {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* حاوية زر البحث */
+.dropdown-search .btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.82);
+  /* اللون الافتراضي للنص والأيقونة */
+  transition: color 0.3s ease;
+  padding: 0.3rem 0.5rem;
+  background: transparent;
+  border: none;
+}
+
+.dropdown-search .btn i,
+.dropdown-search .btn .search-text {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.3s ease;
+}
+
+/* عند المرور بالماوس */
+.dropdown-search .btn:hover i,
+.dropdown-search .btn:hover .search-text {
+  color: #ffffff;
+}
+
+/* لتتناسب مع بقية navbar */
+.dropdown-search .btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+
+/* إزالة أي خط أو بوردر تحت زر البحث مهما كان */
+.dropdown-search .btn,
+.dropdown-search .btn:focus,
+.dropdown-search .btn:hover,
+.dropdown-search .btn:active {
+  border: none !important;
+  /* إزالة الحدود */
+  outline: none !important;
+  /* إزالة أي خط عند التركيز */
+  box-shadow: none !important;
+  /* إزالة أي ظل */
+  text-decoration: none !important;
+  /* إزالة أي underline */
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.82);
+  /* لون النص الافتراضي */
+}
+
+/* عند hover */
+.dropdown-search .btn:hover {
+  color: #ffffff;
+  /* لون النص عند hover */
+}

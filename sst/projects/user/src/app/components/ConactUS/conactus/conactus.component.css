@@ -1,0 +1,237 @@
+
+
+.dark-blue {
+  color: var(--brand-ink-dark); /* تقريبًا لون blue-950 */
+}
+
+.dark-blue:hover {
+  color: var(--brand-ink-dark); /* عند المرور يصبح أزرق فاتح */
+}
+
+.navbar{
+  background-color:#dee2e6;
+}
+.custom-hover {
+  color: var(--brand-ink-dark); /* الأزرق الغامق */
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.custom-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* مسافة الخط تحت النص */
+  width: 100%;
+  height: 2px; /* سمك الخط */
+  background-color: var(--brand-ink-dark); /* اللون عند الهوفر */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.custom-hover:hover {
+  color: var(--brand-ink-dark); /* اللون عند المرور */
+}
+
+.custom-hover:hover::after {
+  transform: scaleX(1); /* يظهر الخط */
+}
+
+.custom-border {
+  color: var(--brand-ink-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand-ink-dark);
+  padding-bottom: 2px;
+}
+
+
+h5 {
+  color: #333333;
+  font: 30px HelveticaNeue, serif;
+}
+
+
+/* bbbbbbbb */
+/* =======================
+   التنسيق العام لمحتوى التواصل
+======================= */
+
+.contact-simple {
+  direction: rtl; /* لجعل النص والمحاذاة من اليمين */
+  text-align: right;
+  max-width: 600px; /* يمكنك تغيير العرض */
+  margin: 0 auto; /* تمركز في الشاشة */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+ margin-right: -20px;
+ 
+}
+
+/* العناوين */
+.contact-simple h5 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* عناصر التواصل */
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+
+/* تسمية الحقل */
+.contact-item .label {
+  font-weight: bold;
+  color: #555;
+  margin-left: 10px;
+}
+
+/* القيم */
+.contact-item .value {
+  color: var(--brand-blue);
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 300px;
+}
+
+.contact-item .value:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   الشاشة الصغيرة
+======================= */
+@media (max-width: 768px) {
+  .contact-simple {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+  }
+
+  .contact-item .label {
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+}
+
+/* =======================
+   تصغير حجم الخط للشاشات الصغيرة
+======================= */
+
+/* تابلت */
+@media (max-width: 992px) {
+  h5 {
+    font-size: 22px;
+  }
+
+  .contact-item .label {
+    font-size: 14px;
+  }
+
+  .contact-item .value {
+    font-size: 14px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+  h5 {
+    font-size: 18px;
+  }
+
+  .contact-item .label {
+    font-size: 13px;
+  }
+
+  .contact-item .value {
+    font-size: 13px;
+      margin-left: 200px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+}
+
+/* موبايلات صغيرة جداً */
+@media (max-width: 480px) {
+  h5 {
+    font-size: 16px;
+  }
+
+  .contact-item .label {
+    font-size: 12px;
+  }
+
+  .contact-item .value {
+    font-size: 12px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+}
+
+
+/* إصلاح عرض بيانات التواصل */
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+/* تسمية الحقل */
+.contact-item .label {
+  flex-shrink: 0;
+  margin-left: 0;
+}
+
+/* قيمة الهاتف والبريد */
+.contact-item .value {
+  margin-left: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* إصلاح عرض الهاتف على الموبايل */
+@media (max-width: 768px) {
+  .contact-item {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .contact-item .label {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .contact-item .value {
+    margin-left: 0;
+    font-size: 13px;
+  }
+}

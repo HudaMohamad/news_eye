@@ -1,0 +1,16 @@
+<div id="logo_row">
+  <p class="tagline fade-in-title"><span>نرى الحدث .. ننقل الحقيقة</span></p>
+
+  <a
+    routerLink="/"
+    id="logo-wrapper"
+    [ngClass]="{ 'swinging': isSwinging }"
+    (mouseenter)="startSwing()"
+    (touchstart)="startSwing()"
+  >
+    <img src="assets/brand/ain-logo.png"
+         alt="عين الحدث"
+         class="zoom-in-left">
+  </a>
+</div>
+ 

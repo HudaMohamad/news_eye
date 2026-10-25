@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="login-card">
+    <h3 class="card-title text-center mb-4">
+      <i class="bi bi-person-circle"></i>
+    </h3>
+
+    <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <!-- البريد الإلكتروني -->
+      <div class="field-wrapper">
+        <input type="text" formControlName="email" id="email" placeholder="اسم المستخدم" required />
+        <i class="bi bi-person input-icon"></i>
+      </div>
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger small">
+        ⚠️ أدخل بريدًا إلكترونيًا صحيح
+      </div>
+
+      <!-- كلمة المرور مع أيقونة العين -->
+      <div class="field-wrapper password-wrapper">
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" id="password"
+          placeholder="كلمة المرور" required />
+        <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'" (click)="togglePassword()"></i>
+      </div>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger small">
+        ⚠️ كلمة المرور يجب أن تكون بين 10 و 100 حرفًا
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid || isLoading">
+        {{ isLoading ? 'جاري التحميل...' : 'دخول' }}
+      </button>
+
+      <button type="button" class="btn btn-link mt-2" (click)="goToChangePassword()">
+        تغيير كلمة السر
+      </button>
+
+    </form>
+  </div>
+</div>

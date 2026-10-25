@@ -1,0 +1,127 @@
+<section class="top-grid" dir="rtl">
+
+  <!-- الخبر الرئيسي: سلايدر بصورة كبيرة والعنوان فوقها -->
+  <div class="hero-col">
+    <div class="cat-titel">
+      <h4 class="titel">آخر الأخبار</h4>
+    </div>
+
+    <div id="carouselExampleCaptions" class="carousel slide hero" data-bs-ride="carousel">
+
+      <!-- المؤشرات -->
+      <div class="carousel-indicators">
+        <button
+          *ngFor="let i of sliderIndicators"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          [attr.data-bs-slide-to]="i"
+          [class.active]="i === 0"
+          [attr.aria-current]="i === 0 ? 'true' : null"
+          aria-label="Slide">
+        </button>
+      </div>
+
+      <!-- السلايدات -->
+      <div class="carousel-inner">
+        <div
+          *ngFor="let newsItem of sliderNews; let i = index"
+          class="carousel-item"
+          [class.active]="i === 0">
+
+          <a class="hero-link"
+             [routerLink]="['/part-' + newsItem.part, 'sub-' + newsItem.part, newsItem.id]">
+            <img [src]="newsItem.post_image" [alt]="newsItem.post_title">
+
+            <div class="hero-caption">
+              <span class="kicker kicker-light">{{ sectionName(newsItem.part) }}</span>
+              <h2 class="hero-title">{{ newsItem.post_title }}</h2>
+              <time class="hero-time">{{ newsItem.post_date | timeAgo }}</time>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- الأسهم -->
+      <button class="carousel-control-prev" type="button"
+              data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button"
+              data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- أهم الأخبار: قائمة عناوين بفواصل رفيعة -->
+  <aside class="top-list">
+    <div class="cat-titel">
+      <h4 class="titel">أهم الأخبار</h4>
+    </div>
+
+    <ul class="headline-list">
+      <li *ngFor="let item of rightNews">
+        <a [routerLink]="['/part-' + item.part, 'sub-' + item.part, item.id]">
+          <span class="kicker">{{ sectionName(item.part) }}</span>
+          <span class="headline-title">{{ item.post_title }}</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<!-- الخبر المميز من الأخبار العربية -->
+<article class="featured" dir="rtl" *ngIf="arabicMainNews">
+
+  <a class="featured-img"
+     [routerLink]="['/part-' + arabicMainNews.part, 'sub-' + arabicMainNews.part, arabicMainNews.id]">
+    <img [src]="arabicMainNews.post_image" [alt]="arabicMainNews.post_title">
+  </a>
+
+  <div class="featured-body">
+    <span class="kicker">{{ sectionName(arabicMainNews.part) }}</span>
+
+    <h3 class="featured-title">
+      <a [routerLink]="['/part-' + arabicMainNews.part, 'sub-' + arabicMainNews.part, arabicMainNews.id]">
+        {{ arabicMainNews.post_title }}
+      </a>
+    </h3>
+
+    <p class="news-meta">
+      <span><i class="fas fa-user"></i> {{ arabicMainNews.post_author }}</span>
+      <span *ngIf="arabicMainNews.post_date">
+        <i class="fas fa-clock"></i> {{ arabicMainNews.post_date | timeAgo }}
+      </span>
+    </p>
+
+    <a class="read-link"
+       [routerLink]="['/part-' + arabicMainNews.part, 'sub-' + arabicMainNews.part, arabicMainNews.id]">
+      اقرأ المزيد <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+
+</article>
+
+
+<app-sections></app-sections>
+<app-photo-news></app-photo-news>
+<app-choices></app-choices>
+
+<div class="home-side-layout">
+
+  <!-- الأكثر قراءة -->
+  <div class="home-more-read">
+    <app-more-read></app-more-read>
+  </div>
+
+  <!-- الفيديو -->
+  <div class="home-video" *ngIf="latestVideo?.url">
+    <app-video-more [videoLink]="latestVideo.url"></app-video-more>
+  </div>
+
+</div>
+
+<app-follow></app-follow>

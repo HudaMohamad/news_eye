@@ -1,0 +1,406 @@
+/* =======================
+   الألوان والخطوط العامة
+======================= */
+.dark-blue {
+  font-family: HelveticaNeue, serif;
+  font-size: 16px;
+  color: var(--brand-ink);
+}
+
+.nav-link.dark-blue i.fa-star-half-stroke {
+  color: var(--brand-ink) !important;
+}
+
+.dark-blue:hover {
+  color: var(--brand-ink);
+}
+
+.navbar {
+  background-color: #f5f5f5;
+}
+
+/* =======================
+   تأثيرات الروابط
+======================= */
+.custom-hover {
+  color: var(--brand-ink);
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.custom-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brand-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.custom-hover:hover {
+  color: var(--brand-ink);
+}
+
+.custom-hover:hover::after {
+  transform: scaleX(1);
+}
+
+.custom-border {
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand-ink);
+  padding-bottom: 2px;
+}
+
+/* =======================
+   العناوين
+======================= */
+h5 {
+  color: #333333;
+  font: 30px HelveticaNeue, serif;
+}
+
+/* =======================
+   قسم الأخبار (Grid)
+======================= */
+.more .row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* عمودين */
+  gap: 20px;
+  direction: rtl; /* العنصر الأول يظهر على اليمين */
+}
+
+/* =======================
+   الكرت
+======================= */
+.more .row .card {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: flex-start;
+  padding: 5px;
+  background-color: #fff;
+}
+
+/* =======================
+   الصورة داخل الكرت
+======================= */
+.more .row .card img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover; /* الحفاظ على أبعاد الصورة */
+  flex-shrink: 0; /* منع الصورة من الانكماش */
+  border-radius: 0; /* إلغاء أي تقويس في الزوايا */
+}
+
+/* =======================
+   جسم الكرت
+======================= */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2;
+  gap: 3px;
+}
+
+/* =======================
+   عنوان الخبر
+======================= */
+.card-title {
+  color: var(--brand-blue);
+  font-size: 15px; /* تصغير حجم الخط */
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* زيادة الفراغ بين العنوان والأيقونة */
+  margin-bottom: 5px; /* إضافة فراغ أسفل العنوان بينه وبين التفاصيل */
+}
+
+.card-title a {
+  text-decoration: none;
+  color: var(--brand-ink);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.card-title a:hover {
+  color: var(--brand-accent-dark);
+  border-color: var(--brand-accent-dark);
+}
+
+/* =======================
+   أيقونة العنوان
+======================= */
+.card-title i {
+  color: var(--brand-ink) !important;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+/* =======================
+   التأثيرات عند المرور على العنوان والأيقونة */
+.card-title a.custom-hover:hover i {
+  color: var(--brand-accent-dark); /* تغيير اللون عند hover على العنوان */
+}
+
+.card-title a.custom-hover:hover {
+  color: var(--brand-accent-dark);
+  border-color: var(--brand-accent-dark); /* تغيير لون الرابط عند المرور */
+}
+
+/* =======================
+   نص تفاصيل الخبر
+======================= */
+.post-body {
+  font-family: HelveticaNeue, serif;
+  font-size: 16px;
+  color: #333;
+  flex: 1; /* يملأ المساحة المتبقية داخل الكرت */
+  line-height: 1.5;
+  max-height: 48px; /* تعديل الارتفاع ليعرض سطرين فقط */
+  overflow: hidden; /* إخفاء النص الزائد */
+  position: relative;
+  text-overflow: ellipsis; /* إظهار "..." إذا تم إخفاء جزء من النص */
+  /* إضافة فراغ أسفل النص لتفادي التداخل */
+}
+
+.card .news {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: #97939B;
+}
+
+.card .news i {
+  font-size: 15px;
+  color: #97939B;
+}
+
+/* =======================
+   Pagination
+======================= */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.pagination .page-link {
+  background-color: #fff !important;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 0; /* إلغاء أي تقويس في الزوايا */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #fff;
+  color: var(--brand-blue);
+  border-color: #ddd;
+  border-radius: 0; /* إلغاء التقويس */
+}
+
+.pagination .page-link:hover {
+  background-color: #f0f0f0;
+  color: var(--brand-blue);
+  border-radius: 0; /* إلغاء التقويس عند التمرير */
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: #fff;
+  color: #333;
+  border-color: #ddd;
+  border-radius: 0; /* إلغاء التقويس عند التعطيل */
+}
+
+/* تأكيد الوضع عند RTL */
+[dir="rtl"] .pagination {
+  justify-content: flex-end !important;
+}
+
+/* =======================
+   النصوص داخل الـ news
+======================= */
+.card .news span {
+  font-size: 14px;
+  color: #97939B;
+}
+
+/* =======================
+   خصائص الكرت */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 140px; /* ارتفاع الكرت نفسه أو حسب حجم الصورة */
+}
+
+.post-time {
+  font-size: 14px;
+  color: #97939B;
+  margin-top: auto;  /* هذا يجعل النص يلتصق بأسفل الكرت */
+  text-align: left;
+  padding: 10px 0;
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.card .post-time {
+  font-size: 14px;
+  color: #97939B;
+  margin-top: auto;  /* هذا يجعل النص يلتصق بأسفل الكرت */
+}
+
+/* =======================
+   ستايل العنوان والأيقونة (السيارة)
+======================= */
+
+/* خصائص العنوان */
+.card-title {
+  color: var(--brand-blue); /* لون العنوان */
+  font-size: 16px; /* حجم الخط */
+  margin: 0; /* إزالة الهوامش */
+  display: flex; /* استخدام Flexbox لترتيب العناصر */
+  align-items: center; /* محاذاة العناصر العمودية */
+  gap: 5px; /* إضافة مسافة بين الأيقونة والنص */
+}
+
+/* خصائص الرابط الخاص بـ "عنوان الخبر" */
+.card-title a.custom-hover-title {
+  text-decoration: none; /* إزالة التسطير من الرابط */
+  color: var(--brand-ink); /* لون الرابط */
+  transition: color 0.3s, transform 0.3s; /* تأثيرات عند التمرير */
+}
+
+/* إزالة الخط تحت "عنوان الخبر" عند التمرير عليه */
+.card-title a.custom-hover-title:hover {
+  text-decoration: none; /* إزالة التسطير عند التمرير */
+  color:  var(--brand-accent-dark); /* الحفاظ على نفس اللون عند التمرير */
+}
+
+/* خصائص الأيقونة */
+.card-title i {
+  color: var(--brand-ink); /* لون الأيقونة */
+  font-size: 18px; /* حجم الأيقونة */
+  transition: color 0.3s;
+}
+
+/* التأثيرات على الأيقونة عند المرور عليها */
+.card-title a:hover i {
+  color: var(--brand-accent-dark); /* تغيير لون الأيقونة عند مرور الفأرة على الرابط */
+}
+
+/* =======================
+   تأثير الخط تحت العنوان
+======================= */
+
+/* هنا يتم إخفاء الخط تحت "عنوان الخبر" عند التمرير عليه */
+.custom-hover-title::after {
+  content: none; /* إزالة الخط تمامًا تحت الرابط */
+}
+
+/* =======================
+   التأثيرات الأخرى على الروابط التي تحتوي على custom-hover
+======================= */
+
+/* تأثيرات الـ hover على الروابط الأخرى */
+.custom-hover {
+  text-decoration: none; /* إزالة التسطير تحت النص */
+}
+
+.custom-hover:hover::after {
+  transform: scaleX(1); /* إظهار الخط تحت الرابط عند التمرير */
+}
+ 
+
+
+
+
+
+/* =======================
+   Responsive - شاشات صغيرة
+======================= */
+@media (max-width: 768px) {
+
+  /* عرض كرت واحد في الصف */
+  .more .row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* الحفاظ على تنسيق الكرت أفقي */
+  .more .row .card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  /* تصغير الصورة قليلاً للموبايل */
+  .more .row .card img {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* ضبط ارتفاع جسم الكرت */
+  .card-body {
+    height: auto;
+  }
+
+  /* تقليل حجم العنوان */
+  .card-title {
+    font-size: 14px;
+  }
+
+  /* تقليل نص الخبر */
+  .post-body {
+    font-size: 14px;
+    max-height: 42px;
+  }
+
+}
+ 
+
+
+
+
+
+
+
+/* =======================
+   مسافة بين الأيقونة والعنوان
+======================= */
+.category-icon i {
+  margin-right: 5px; /* مسافة صغيرة بين الأيقونة والعنوان */
+  font-size: 16px; /* حجم الأيقونة */
+  color: var(--brand-ink); /* لون الأيقونة مثل لون العنوان */
+}
+
+/* =======================
+   تغيير لون الأيقونة ليطابق العنوان عند الـ Hover
+======================= */
+.card-title a:hover .category-icon i {
+  color: var(--brand-accent-dark); /* تغيير اللون عند التمرير ليطابق تأثير الـ Hover */
+}

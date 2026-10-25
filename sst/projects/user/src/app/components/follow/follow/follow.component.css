@@ -1,0 +1,86 @@
+/* تابعنا + إعلانات: عمودين بنفس أسلوب باقي الصفحة */
+.all {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  direction: rtl;
+  padding: 0 12px 32px;
+}
+
+.Arabic-news {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.Arabic-news a {
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+.Arabic-news a:hover {
+  color: var(--brand-accent-dark);
+}
+
+.Arabic-news .fas {
+  margin-left: 6px;
+  color: var(--brand-accent);
+}
+
+/* أيقونات التواصل: مربعات بلون الحبر، وبتاخد لون المنصة لما تمرّري عليها */
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.social-icons .list-inline-item {
+  margin: 0;
+}
+
+.social {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  background-color: var(--brand-ink);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.social:hover { color: #ffffff; }
+.social.twitter:hover  { background: #000000; }
+.social.youtube:hover  { background: #ff0000; }
+.social.facebook:hover { background: #1877f2; }
+.social.telegram:hover { background: #229ed9; }
+
+/* زر تطبيق أندرويد */
+.social.android {
+  width: auto;
+  gap: 8px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.social.android:hover { background: #3ddc84; }
+
+.social.android i {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .all {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

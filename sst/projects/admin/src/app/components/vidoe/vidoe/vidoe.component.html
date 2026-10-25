@@ -1,0 +1,89 @@
+<div class="background">
+  <div class="container mt-4">
+
+    <!-- إضافة فيديو -->
+    <form (submit)="addVideo(); $event.preventDefault()">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="أدخل رابط فيديو يوتيوب"
+          [(ngModel)]="videoUrl"
+          name="videoUrl"
+        />
+        <button class="btn btn-success" type="submit">
+          <i class="fa-solid fa-plus"></i> أضف
+        </button>
+      </div>
+    </form>
+
+    <!-- الفيديو المعروض حالياً -->
+    <div *ngIf="currentVideoUrl" class="text-center mb-4">
+      <iframe
+        [src]="currentVideoUrl"
+        width="560"
+        height="315"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- قائمة الفيديوهات -->
+    <div class="table-responsive" *ngIf="videos.length > 0; else noVideos">
+      <table class="table table-bordered table-hover text-center align-middle bg-white">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>المقطع</th>
+            <th>الوقت</th>
+            <th>التحكم</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let video of videos; let i = index">
+            <td>{{ i + 1 }}</td>
+
+            <!-- فيديو مصغر -->
+            <td>
+              <div class="video-stye">
+                <iframe
+                  width="300"
+                  height="150"
+                  [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video.url)"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </td>
+
+            <td>{{ video.created_at | timeAgo:'relative' }}</td>
+
+            <td>
+              <button
+                type="button"
+                class="btn btn-sm btn-danger"
+                (click)="deleteVideo(i, video.id)">
+                <i class="fa-solid fa-trash"></i> حذف
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-sm btn-primary"
+                (click)="showSafeVideo(video)">
+                <i class="fa-solid fa-play"></i> عرض
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- لا يوجد فيديوهات -->
+    <ng-template #noVideos>
+      <p class="text-center text-muted mt-3">لا يوجد فيديوهات حالياً</p>
+    </ng-template>
+
+  </div>
+</div>

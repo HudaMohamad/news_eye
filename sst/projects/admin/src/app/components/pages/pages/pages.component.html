@@ -1,0 +1,40 @@
+
+<div class="background">
+
+  <div class="table-container" dir="rtl">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>الترتيب</th>
+        <th>العنوان</th>
+        <th>التاريخ</th>
+        <th>التحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let page of pages">
+        <td>{{ page.id }}</td>
+        <td>{{ page.order }}</td>
+        <td class="title-cell">
+          <a href="#" class="title-link">
+            {{ page.title }}
+            <i class="fas fa-copy"></i>
+          </a>
+        </td>
+        <td>
+          <i class="far fa-calendar-alt"></i>
+          تحديث: {{ page.updated_at }}
+        </td>
+        <td>
+          <button class="edit-btn" (click)="editPage(page.id)">
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+

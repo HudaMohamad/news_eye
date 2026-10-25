@@ -1,0 +1,321 @@
+.navbar {
+
+  /* تكبير ارتفاع النافبار والنصوص */
+  min-height: 70px !important;
+  font-size: 1.1rem !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin-right: -5px;
+
+}
+
+/* روابط navbar والنصوص مع الأيقونات معًا */
+.navbar a {
+  color: #b6b4b4;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+/* أيقونات Font Awesome */
+.navbar i {
+  font-size: 22px !important;
+  /* تكبير الأيقونات */
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover i {
+  color: #ffffff;
+}
+
+/* السهم الصغير للـ dropdown */
+.navbar .dropdown-toggle::after {
+  float: left;
+  margin-right: 0.5em;
+  margin-left: 0;
+  position: relative;
+  top: 2px;
+}
+
+/* إزالة البوردر والظل عن input و button */
+form .form-control,
+form .btn {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: #b6b4b4;
+  transition: color 0.3s ease;
+}
+
+form .form-control:hover {
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+
+/* أيقونة البيت */
+.navbar .fa-house-chimney {
+  color: #b6b4b4;
+  transition: color 0.3s ease;
+}
+
+.navbar .fa-house-chimney:hover {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding-left: 25px;
+}
+
+.dropdown-search {
+  margin-right: auto;
+}
+
+.search-container i,
+.search-container .search-text {
+  color: #b6b4b4;
+  transition: color 0.3s ease;
+  padding: 2px;
+}
+
+.search-container:hover i,
+.search-container:hover .search-text {
+  color: #ffffff;
+}
+
+.home-icon i {
+  font-size: 18px;
+  color: rgb(112, 112, 112);
+  transition: color 0.3s;
+  margin-left: 10px;
+}
+
+.home-icon:hover i {
+  color: white;
+}
+
+/* الروابط داخل النافبار */
+.navbar .nav-link {
+  color: #a1a1a1;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+/* الرابط النشط */
+.navbar .nav-link.active-link {
+  background-color: #131111;
+  color: #fff;
+  padding: 1rem 1rem;
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+
+
+
+/* إزالة المسافة من بداية النافبار (الجهة اليمنى في RTL) */
+.navbar .container-fluid {
+  top: 25px important;
+  padding-right: 0 !important;
+  margin: -40px !important;
+}
+
+.navbar-nav {
+  padding-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* نضمن أن أول عنصر يبدأ مباشرة من الطرف */
+.navbar-nav .nav-item:first-child {
+  margin-right: 0 !important;
+}
+
+
+
+/* .outlet{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+}  */
+
+
+
+/* Responsive Design للـ Navbar */
+
+/* للشاشات الكبيرة (اقل من 1200px) */
+@media (max-width: 1199.98px) {
+  .navbar {
+    min-height: 60px !important;
+    font-size: 1rem !important;
+  }
+
+  .navbar i {
+    font-size: 20px !important;
+  }
+
+  .navbar .nav-link {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* للشاشات المتوسطة (اقل من 992px) */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 10px 0;
+    gap: 0 !important;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin: 2px 0 !important;
+  }
+
+  .navbar .nav-link {
+    padding: 12px 15px !important;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .navbar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar .nav-link.active-link {
+    margin: 0 !important;
+    padding: 12px 15px !important;
+  }
+
+  .navbar i {
+    font-size: 18px !important;
+    min-width: 25px;
+  }
+
+  /* تصغير حجم الخط للعناوين */
+  .navbar .nav-link span,
+  .navbar .nav-link {
+    font-size: 14px;
+  }
+
+  /* جعل أيقونة الخروج مع النص */
+  .navbar .text-danger i {
+    font-size: 16px !important;
+  }
+}
+
+/* للشاشات الصغيرة (اقل من 768px) */
+@media (max-width: 767.98px) {
+  .navbar {
+    min-height: 50px !important;
+  }
+
+  .navbar .nav-link {
+    padding: 10px 12px !important;
+  }
+
+  .navbar i {
+    font-size: 16px !important;
+  }
+
+  /* تصغير حجم الخط أكثر للشاشات الصغيرة */
+  .navbar .nav-link span,
+  .navbar .nav-link {
+    font-size: 13px;
+  }
+
+  /* تكبير مسافة النقر */
+  .navbar-nav .nav-item {
+    margin: 1px 0 !important;
+  }
+
+  /* تعديل زر القائمة الجانبية */
+  .btn-outline-light {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-outline-light i {
+    font-size: 18px !important;
+  }
+}
+
+/* للشاشات الصغيرة جداً (اقل من 576px) */
+@media (max-width: 575.98px) {
+  .navbar .nav-link {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .navbar i {
+    font-size: 14px !important;
+    min-width: 20px;
+  }
+
+  .navbar .text-danger i {
+    font-size: 14px !important;
+  }
+
+  /* تكبير الأيقونات الرئيسية قليلاً */
+  .fa-gear,
+  .fa-house,
+  .fa-user,
+  .fa-right-from-bracket {
+    font-size: 16px !important;
+  }
+}
+
+/* تحسينات عامة للتجاوب */
+.navbar-nav {
+  transition: all 0.3s ease;
+}
+
+/* تعديل الـ container-fluid ليكون متجاوب */
+@media (max-width: 991.98px) {
+  .navbar .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+    top: 0 !important;
+  }
+
+  .navbar-nav {
+    padding: 10px 15px !important;
+    width: 100%;
+  }
+}
+
+/* تحسين ظهور الشريط الجانبي */
+app-sidebar {
+  transition: transform 0.3s ease;
+}
+
+/* للشاشات الصغيرة، تحسين ظهور المحتوى */
+@media (max-width: 991.98px) {
+  router-outlet+* {
+    padding: 15px !important;
+  }
+}
+
+/* تحسين ظهور أيقونة الخروج */
+.navbar .text-danger i {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* عند تمرير الماوس على العناصر في الشاشات الصغيرة */
+@media (max-width: 991.98px) {
+  .navbar .nav-link:active {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}

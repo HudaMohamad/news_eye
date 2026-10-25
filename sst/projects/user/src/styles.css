@@ -1,0 +1,195 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* =========================
+   ألوان هوية "عين الحدث"
+   (مستوحاة من فرانس 24 + أزرق اللوغو)
+   ========================= */
+:root {
+  --brand-ink: #011D26;          /* الحبر الغامق: العناوين، النافبار، الفوتر */
+  --brand-ink-dark: #00141B;     /* أغمق شوي للتدرّجات والحدود */
+  --brand-blue: #0194EA;         /* أزرق اللوغو */
+  --brand-accent: #00A7E3;       /* السماوي: المربعات والخطوط تحت العناوين */
+  --brand-accent-dark: #0077B6;  /* للـ hover */
+  --brand-red: #D60E0E;          /* الأخبار العاجلة والمباشر */
+  --brand-surface: #F5F8F9;      /* خلفيات فاتحة */
+  --brand-border: #CEDBE0;       /* الحدود والفواصل */
+  --brand-page: #F5F8F9;         /* خلفية الصفحة */
+}
+
+/* النافبار */
+.bg-brand {
+  background: var(--brand-ink) !important;
+  border-bottom: 3px solid var(--brand-accent) !important;
+}
+
+/* روابط وأزرار Bootstrap العامة */
+a {
+  color: var(--brand-ink);
+}
+
+a:hover {
+  color: var(--brand-accent-dark);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--brand-ink);
+  --bs-btn-border-color: var(--brand-ink);
+  --bs-btn-hover-bg: var(--brand-accent-dark);
+  --bs-btn-hover-border-color: var(--brand-accent-dark);
+  --bs-btn-active-bg: var(--brand-ink-dark);
+  --bs-btn-active-border-color: var(--brand-ink-dark);
+}
+
+/* =========================
+   الخط والطباعة (بأسلوب المواقع الإخبارية العالمية)
+   ========================= */
+body,
+.container,
+h1, h2, h3, h4, h5, h6,
+button, input, textarea, select {
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif !important;
+}
+
+body {
+  color: var(--brand-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* صور الأخبار: خلفية رمادية لحتى ما يبيّن فراغ أثناء التحميل */
+.news-card-img img,
+.hero-link img,
+.featured-img img,
+.most-read-img img {
+  background-color: var(--brand-surface);
+}
+
+/* =========================
+   عنوان القسم الموحّد: مربع سماوي + خط رفيع
+   (بيستخدمه كل كمبوننت عنده .cat-titel)
+   ========================= */
+.cat-titel {
+  direction: rtl;
+  text-align: right;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--brand-ink);
+}
+
+.cat-titel .titel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-ink);
+  background: none;
+  padding: 0;
+}
+
+.cat-titel .titel::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--brand-accent);
+  flex-shrink: 0;
+}
+
+/* الأيقونات اللي كانت جنب العناوين ما عاد إلها داعي */
+.cat-titel .titel i {
+  display: none;
+}
+
+/* سطر المعلومات (الكاتب والوقت) */
+.news-meta,
+.meta {
+  color: #5B6B73;
+  font-size: 13px;
+}
+
+/* =========================
+   كرت الخبر الموحّد (الأخبار المصورة، مختارات، صفحات الأقسام)
+   ========================= */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 24px;
+  direction: rtl;
+  padding: 0 12px;
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.news-card-img {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.news-card-img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-card-img img {
+  transform: scale(1.04);
+}
+
+.news-card-title {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-title a {
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+.news-card-title a:hover {
+  color: var(--brand-accent-dark);
+}
+
+.news-card .news-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: auto 0 0;
+}
+
+.news-card .news-meta i {
+  margin-left: 4px;
+}
+
+/* الكلمة الصغيرة فوق العنوان (اسم القسم) */
+.kicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-accent-dark);
+  margin-bottom: 6px;
+}
+
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
